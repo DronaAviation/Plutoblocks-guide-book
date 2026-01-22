@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,16 @@
     <link href="./font-awesome-min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
+
         :root {
             scroll-behavior: smooth;
             font-family: 'Inter', sans-serif;
         }
 
-        body { background-color: #0f172a; color: #e2e8f0; }
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
 
         /* Navigation Highlighting */
         .sidebar-item {
@@ -23,7 +27,12 @@
             border-left: 3px solid transparent;
             color: #cbd5e1;
         }
-        .sidebar-item:hover { background-color: #1e293b; color: #0ea5e9; }
+
+        .sidebar-item:hover {
+            background-color: #1e293b;
+            color: #0ea5e9;
+        }
+
         .sidebar-item.active {
             background-color: #1e3a8a;
             color: #0ea5e9;
@@ -32,7 +41,9 @@
         }
 
         /* Section Spacing and Scroll Offset */
-        section { scroll-margin-top: 100px; }
+        section {
+            scroll-margin-top: 100px;
+        }
 
         /* Block Visuals */
         .pb-block {
@@ -44,9 +55,10 @@
             font-weight: 700;
             font-size: 0.7rem;
             position: relative;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 4px;
         }
+
         .pb-block::before {
             content: '';
             position: absolute;
@@ -60,21 +72,65 @@
         }
 
         /* Category Colors */
-        .block-led { background-color: #A55B80; } 
-        .block-function { background-color: #A55B5B; }
-        .block-timer { background-color: #A5935B; } 
-        .block-peripherals { background-color: #5BA58C; } 
-        .block-command { background-color: #A55B5B; } 
-        .block-motor { background-color: #5B6DA5; } 
-        .block-remote { background-color: #A5935B; } 
-        .block-sensor { background-color: #5B8CA5; } 
-        .block-state { background-color: #825BA5; } 
-        .block-desired { background-color: #A55B80; } 
-        .block-mode { background-color: #5BA55B; } 
-        .block-status { background-color: #A5805B; } 
-        .block-logic { background-color: #5B80A5; } 
-        .block-math { background-color: #5B67A5; }
-        .block-var { background-color: #A55B5B; } 
+        .block-led {
+            background-color: #A55B80;
+        }
+
+        .block-function {
+            background-color: #A55B5B;
+        }
+
+        .block-timer {
+            background-color: #A5935B;
+        }
+
+        .block-peripherals {
+            background-color: #5BA58C;
+        }
+
+        .block-command {
+            background-color: #A55B5B;
+        }
+
+        .block-motor {
+            background-color: #5B6DA5;
+        }
+
+        .block-remote {
+            background-color: #A5935B;
+        }
+
+        .block-sensor {
+            background-color: #5B8CA5;
+        }
+
+        .block-state {
+            background-color: #825BA5;
+        }
+
+        .block-desired {
+            background-color: #A55B80;
+        }
+
+        .block-mode {
+            background-color: #5BA55B;
+        }
+
+        .block-status {
+            background-color: #A5805B;
+        }
+
+        .block-logic {
+            background-color: #5B80A5;
+        }
+
+        .block-math {
+            background-color: #5B67A5;
+        }
+
+        .block-var {
+            background-color: #A55B5B;
+        }
 
         .info-card {
             background: #1e293b;
@@ -95,7 +151,11 @@
             color: #64748b;
         }
 
-        .text-body { font-size: 13px; color: #cbd5e1; line-height: 1.5; }
+        .text-body {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
 
         .use-case-box {
             background: #0f172a;
@@ -114,24 +174,39 @@
             font-size: 11px;
         }
 
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #1e3a8a; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e3a8a;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
     </style>
 </head>
+
 <body class="text-slate-800">
 
     <div class="flex">
         <!-- Sidebar -->
-        <aside id="sidebar" class="fixed top-0 left-0 h-screen w-72 bg-slate-900 border-r border-slate-700 z-50 overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+        <aside id="sidebar"
+            class="fixed top-0 left-0 h-screen w-72 bg-slate-900 border-r border-slate-700 z-50 overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
             <div class="p-8">
                 <div class="flex items-center gap-3 mb-10">
                     <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg">
                         <i class="fas fa-cube text-white"></i>
                     </div>
                     <div class="leading-tight">
-                        <h1 class="text-lg font-extrabold tracking-tight text-slate-100">Pluto<span class="text-sky-400">Blocks</span></h1>
+                        <h1 class="text-lg font-extrabold tracking-tight text-slate-100">Pluto<span
+                                class="text-sky-400">Blocks</span></h1>
                         <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Master Guide V4</p>
                     </div>
                 </div>
@@ -161,23 +236,30 @@
 
         <!-- Main Content -->
         <main class="flex-1 lg:ml-72 min-h-screen">
-            <header class="lg:hidden bg-slate-900 border-b border-slate-700 p-4 sticky top-0 z-40 flex justify-between items-center">
+            <header
+                class="lg:hidden bg-slate-900 border-b border-slate-700 p-4 sticky top-0 z-40 flex justify-between items-center">
                 <div class="font-bold text-slate-100">PlutoBlocks V4</div>
                 <button id="menuBtn" class="p-2 text-slate-400"><i class="fas fa-bars text-xl"></i></button>
             </header>
 
             <div class="max-w-6xl mx-auto px-6 lg:px-12 py-16 space-y-32">
-                
+
                 <!-- 1. LED Control -->
                 <section id="LED">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">1. LED Control</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">PlutoBlocks for Primus X/V4, Primus X2 & Primus V5</span> include three programmable status LEDs that provide real-time visual feedback about your drone's state and operations.
+                            <span class="font-bold text-slate-100">PlutoBlocks for Primus X/V4, Primus X2 & Primus
+                                V5</span> include three programmable status LEDs that provide real-time visual feedback
+                            about your drone's state and operations.
                         </p>
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            This category contains powerful blocks to control all three LEDs independently, allowing you to set each one to <span class="font-semibold text-sky-400">ON</span>, <span class="font-semibold text-sky-400">OFF</span>, or <span class="font-semibold text-sky-400">TOGGLE</span> states based on your custom logic.
+                            This category contains powerful blocks to control all three LEDs independently, allowing you
+                            to set each one to <span class="font-semibold text-sky-400">ON</span>, <span
+                                class="font-semibold text-sky-400">OFF</span>, or <span
+                                class="font-semibold text-sky-400">TOGGLE</span> states based on your custom logic.
                         </p>
                         <div class="grid grid-cols-3 gap-4 mt-6 pt-4 border-t border-blue-800">
                             <div class="flex items-center gap-2">
@@ -198,22 +280,41 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="info-card">
                             <h3 class="font-bold">Red LED</h3>
-                            <img src="gbassets/36.png" alt="Red LED Block" class="w-full h-24 object-contain rounded-lg mb-2">
-                          
-                            <div><span class="label">Function</span><p class="text-body">Sets the state (ON/OFF/Blink) of the Red LED.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Real-time emergency warning system that activates on sensor fault, low battery threshold, or collision detection for immediate visual feedback.</p></div>
+                            <img src="gbassets/36.png" alt="Red LED Block"
+                                class="w-full h-24 object-contain rounded-lg mb-2">
+
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Sets the state (ON/OFF/Blink) of the Red LED.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Real-time emergency warning system that activates on sensor fault,
+                                    low battery threshold, or collision detection for immediate visual feedback.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Green LED</h3>
-                            <img src="gbassets/37.png" alt="Green LED Block" class="w-full h-24 object-contain rounded-lg mb-2">
-                            <div><span class="label">Function</span><p class="text-body">Sets the state of the Green LED.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Flight-ready status indicator that signals drone armed state, autonomous mission initialization, or successful system calibration completion.</p></div>
+                            <img src="gbassets/37.png" alt="Green LED Block"
+                                class="w-full h-24 object-contain rounded-lg mb-2">
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Sets the state of the Green LED.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Flight-ready status indicator that signals drone armed state,
+                                    autonomous mission initialization, or successful system calibration completion.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Blue LED</h3>
-                            <img src="gbassets/38.png" alt="Blue LED Block" class="w-full h-24 object-contain rounded-lg mb-2">
-                            <div><span class="label">Function</span><p class="text-body">Sets the state of the Blue LED.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Network connectivity or telemetry link status display, sensor calibration phase indicator, or authentication state confirmation for secure operations.</p></div>
+                            <img src="gbassets/38.png" alt="Blue LED Block"
+                                class="w-full h-24 object-contain rounded-lg mb-2">
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Sets the state of the Blue LED.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Network connectivity or telemetry link status display, sensor
+                                    calibration phase indicator, or authentication state confirmation for secure
+                                    operations.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -221,34 +322,65 @@
                 <!-- 2. Create Function -->
                 <section id="Function">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">2. Create Function</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Create reusable code blocks</span> by grouping multiple PlutoBlocks into custom functions that can be called repeatedly throughout your program.
+                            <span class="font-bold text-slate-100">Create reusable code blocks</span> by grouping
+                            multiple PlutoBlocks into custom functions that can be called repeatedly throughout your
+                            program.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Functions help organize complex logic, reduce code duplication, and make your drone programs easier to maintain and debug. Define once, use everywhere.
+                            Functions help organize complex logic, reduce code duplication, and make your drone programs
+                            easier to maintain and debug. Define once, use everywhere.
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="info-card">
                             <h3 class="font-bold">Define Function</h3>
-                            <div class="pb-block block-function">pluto_function_def</div>
-                            <div><span class="label">Function</span><p class="text-body">Groups several blocks into a single named action.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Modular safety validation routine that encapsulates battery health checks, RC signal verification, and sensor calibration into reusable custom logic.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/create_function_1.png" alt="Define Function Code Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Groups several blocks into a single named action.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Modular safety validation routine that encapsulates battery health
+                                    checks, RC signal verification, and sensor calibration into reusable custom logic.
+                                </p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Call Function</h3>
-                            <div class="pb-block block-function">pluto_function_call</div>
-                            <div><span class="label">Function</span><p class="text-body">Executes the logic stored within a defined function.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Execute recurring drone operations like safety pre-flight checks, state monitoring routines, or complex maneuvers repeatedly throughout autonomous missions.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/create_function_2.png" alt="Call Function Code Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Executes the logic stored within a defined function.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Execute recurring drone operations like safety pre-flight checks,
+                                    state monitoring routines, or complex maneuvers repeatedly throughout autonomous
+                                    missions.</p>
+                            </div>
                         </div>
-                        <div class="info-card md:col-span-2">
+                        <div class="info-card">
                             <h3 class="font-bold">Custom C++</h3>
-                            <div class="pb-block block-function" style="background-color: #333;">pluto_custom_cpp</div>
-                            <div><span class="label">Function</span><p class="text-body">Embed raw C++ code for advanced low-level tasks.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Advanced drone algorithms, integration of existing flight libraries, real-time signal processing, or high-performance computational tasks beyond standard blocks.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/create_function_3.png" alt="Custom C++ Code Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Embed raw C++ code for advanced low-level tasks.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Advanced drone algorithms, integration of existing flight
+                                    libraries, real-time signal processing, or high-performance computational tasks
+                                    beyond standard blocks.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -256,28 +388,58 @@
                 <!-- 3. Timer -->
                 <section id="Timer">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">3. Timer</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Control timing and delays</span> in your drone programs using millisecond-precision timers for sequence management.
+                            <span class="font-bold text-slate-100">Control timing and delays</span> in your drone
+                            programs using millisecond-precision timers for sequence management.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Set countdowns for specific actions, trigger events after delays, or create timed sequences. Perfect for landing delays, hover periods, or sensor data collection intervals.
+                            Set countdowns for specific actions, trigger events after delays, or create timed sequences.
+                            Perfect for landing delays, hover periods, or sensor data collection intervals.
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="info-card">
                             <h3 class="font-bold">Set Timer</h3>
-                            <div class="pb-block block-timer">set_timer_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Starts a millisecond countdown interval.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Precise hover duration timing, sequential mission phase management, sensor data collection intervals, or timed flight pattern transitions.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/timer_1.png" alt="Set Timer Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Starts a millisecond countdown interval.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Precise hover duration timing, sequential mission phase management,
+                                    sensor data collection intervals, or timed flight pattern transitions.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Timer Done?</h3>
-                            <div class="pb-block block-timer">is_timer_done_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Checks if the timer has reached zero.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Time-triggered autonomous landings, mission phase completion detection, or sequential command execution based on elapsed duration thresholds.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/timer_2.png" alt="Timer Done Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if the timer has reached zero.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Time-triggered autonomous landings, mission phase completion
+                                    detection, or sequential command execution based on elapsed duration thresholds.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="font-bold">Get Timer</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/timer_3.png" alt="Get Timer Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reads the current timer value.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Monitor elapsed time, create time-based logic, or log duration of
+                                    specific flight events.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -285,34 +447,91 @@
                 <!-- 4. Peripheral -->
                 <section id="Peripheral">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">4. Peripheral Control</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Interface with external hardware</span> including analog sensors, digital outputs, and servo motors connected to your drone controller.
+                            <span class="font-bold text-slate-100">Interface with external hardware</span> including
+                            analog sensors, digital outputs, and servo motors connected to your drone controller.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Read analog voltages from sensors, control GPIO pins, or drive servos for payload manipulation. Expand your drone's capabilities with custom hardware integrations.
+                            Read analog voltages from sensors, control GPIO pins, or drive servos for payload
+                            manipulation. Expand your drone's capabilities with custom hardware integrations.
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
                             <h3 class="font-bold">Read ADC</h3>
-                            <div class="pb-block block-peripherals">adc_read_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Reads analog voltages (0-3.3V) as raw digital numbers.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Distance sensor integration for obstacle avoidance, light intensity monitoring, environmental condition measurement, or custom sensor payload data acquisition.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/peripheral_1.png" alt="Read ADC Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reads analog voltages (0-3.3V) as raw digital numbers.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Distance sensor integration for obstacle avoidance, light intensity
+                                    monitoring, environmental condition measurement, or custom sensor payload data
+                                    acquisition.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Digital Write</h3>
-                            <div class="pb-block block-peripherals">set_peripheral_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Sets a digital pin to HIGH (1) or LOW (0).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">External relay control for high-power devices, warning beacon activation, landing gear deployment, or payload mechanism triggering.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/peripheral_2.png" alt="Digital Write Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Sets a digital pin to HIGH (1) or LOW (0).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">External relay control for high-power devices, warning beacon
+                                    activation, landing gear deployment, or payload mechanism triggering.</p>
+                            </div>
                         </div>
-                        <div class="info-card md:col-span-2">
+                        <div class="info-card">
                             <h3 class="font-bold">Servo Control</h3>
-                            <div class="pb-block block-peripherals">set_servo_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Controls the angle of standard PWM servos.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Payload delivery systems, mechanical gripper control, camera gimbal positioning, autonomous object manipulation, or precise mechanical actuation tasks.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/peripheral_3.png" alt="Servo Control Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Controls the angle of standard PWM servos.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Payload delivery systems, mechanical gripper control, camera gimbal
+                                    positioning, autonomous object manipulation, or precise mechanical actuation tasks.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="font-bold">Digital Read</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/peripheral_4.png" alt="Digital Read Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reads the binary state (High/Low) of an input pin.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Limit switches for mechanical arms, user input buttons, or simple
+                                    on/off sensor integration.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="font-bold">PWM Output</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/peripheral_5.png" alt="PWM Output Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Generates a Pulse Width Modulation signal on a pin.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Variable LED brightness control, DC motor speed regulation, or
+                                    generating analog-like signals.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -320,44 +539,75 @@
                 <!-- 5. Command -->
                 <section id="Command">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">5. Flight Command</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Execute drone flight operations</span> including takeoff, landing, arming, and special movements to control your drone's behavior.
+                            <span class="font-bold text-slate-100">Execute drone flight operations</span> including
+                            takeoff, landing, arming, and special movements to control your drone's behavior.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Send high-level commands to the flight controller for autonomous or triggered drone movements. These blocks form the foundation of your flight automation scripts.
+                            Send high-level commands to the flight controller for autonomous or triggered drone
+                            movements. These blocks form the foundation of your flight automation scripts.
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
                             <h3 class="font-bold">Take Off</h3>
-                            <div class="pb-block block-command">take_off_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Launches drone to automated height.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Scheduled launch sequences with controlled delay intervals, autonomous mission initiation, or trigger-based flight launches.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/command_1.png" alt="Take Off Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Launches drone to automated height.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Scheduled launch sequences with controlled delay intervals,
+                                    autonomous mission initiation, or trigger-based flight launches.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Land</h3>
-                            <div class="pb-block block-command">land_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Triggers a stable descent.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Emergency landing procedures on low battery, auto-landing at mission completion, or failsafe descent on signal loss.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/command_2.png" alt="Land Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Triggers a stable descent.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Emergency landing procedures on low battery, auto-landing at
+                                    mission completion, or failsafe descent on signal loss.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Arm</h3>
-                            <div class="pb-block block-command">arm_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Enables motor power.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/command_3.png" alt="Arm Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Enables motor power.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Flip</h3>
-                            <div class="pb-block block-command">flip_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">360-degree backflip trick.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/command_4.png" alt="Flip Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">360-degree backflip trick.</p>
+                            </div>
                         </div>
                         <div class="info-card border-l-4 border-l-red-500">
                             <h3 class="font-bold text-red-600">Disarm</h3>
-                            <div class="pb-block" style="background-color: #ef4444;">disarm_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Instant motor kill-switch.</p></div>
-                            <div class="use-case-box"><span class="label">Where to use</span><p class="text-body italic">Stop motors immediately if "is_crashed_x2" is True.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/command_5.png" alt="Disarm Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Instant motor kill-switch.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Where to use</span>
+                                <p class="text-body italic">Stop motors immediately if "is_crashed_x2" is True.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -365,64 +615,97 @@
                 <!-- 6. Motor -->
                 <section id="Motor">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">6. Motor Drive</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Control individual motors</span> on your drone for precise thrust and direction management across all motor ports.
+                            <span class="font-bold text-slate-100">Control individual motors</span> on your drone for
+                            precise thrust and direction management across all motor ports.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Set motor speeds for bi-directional ground movement or propeller thrust values for flight. Useful for testing, balancing, and advanced manual flight stabilization.
+                            Set motor speeds for bi-directional ground movement or propeller thrust values for flight.
+                            Useful for testing, balancing, and advanced manual flight stabilization.
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="info-card">
                             <h3 class="font-bold">Motor M1</h3>
-                            <div class="pb-block block-motor">set_m1_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Reversible motor (1000-2000 PWM).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Autonomous ground rover locomotion with precise bi-directional movement control or mechanical landing gear actuation during flight sequences.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/motor_1.png" alt="Motor M1 Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reversible motor (1000-2000 PWM).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Autonomous ground rover locomotion with precise bi-directional
+                                    movement control or mechanical landing gear actuation during flight sequences.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Motor M2</h3>
-                            <div class="pb-block block-motor">set_m2_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Reversible motor (1000-2000 PWM).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Automated cargo bay door sequencing, retractable payload mechanisms, or remote-controlled mechanical actuator management.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/motor_2.png" alt="Motor M2 Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reversible motor (1000-2000 PWM).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Automated cargo bay door sequencing, retractable payload
+                                    mechanisms, or remote-controlled mechanical actuator management.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Motor M3</h3>
-                            <div class="pb-block block-motor">set_m3_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Reversible motor (1000-2000 PWM).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Multi-axis camera gimbal stabilization, 360-degree payload rotation control, or sensor alignment adjustment during autonomous flight.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/motor_3.png" alt="Motor M3 Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reversible motor (1000-2000 PWM).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Multi-axis camera gimbal stabilization, 360-degree payload rotation
+                                    control, or sensor alignment adjustment during autonomous flight.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Motor M4</h3>
-                            <div class="pb-block block-motor">set_m4_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Reversible motor (1000-2000 PWM).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Automated winch and pulley systems for lift operations, secondary payload deployment/retrieval, or mechanical load control.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/motor_4.png" alt="Motor M4 Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reversible motor (1000-2000 PWM).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Automated winch and pulley systems for lift operations, secondary
+                                    payload deployment/retrieval, or mechanical load control.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Motor M5</h3>
-                            <div class="pb-block block-motor">set_m5_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Propeller thrust (1000-2000 PWM).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Individual propeller performance testing, thrust balancing verification, or asymmetric flight pattern generation.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/motor_5.png" alt="Motor M5 Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Propeller thrust (1000-2000 PWM).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Individual propeller performance testing, thrust balancing
+                                    verification, or asymmetric flight pattern generation.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Motor M6</h3>
-                            <div class="pb-block block-motor">set_m6_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Propeller thrust (1000-2000 PWM).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Motor response curve tuning, connectivity verification, or differential thrust maneuvers for advanced flight control.</p></div>
-                        </div>
-                        <div class="info-card">
-                            <h3 class="font-bold">Motor M7</h3>
-                            <div class="pb-block block-motor">set_m7_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Propeller thrust (1000-2000 PWM).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Emergency descent activation, safety cutoff mechanisms, or controlled emergency landing procedures.</p></div>
-                        </div>
-                        <div class="info-card">
-                            <h3 class="font-bold">Motor M8</h3>
-                            <div class="pb-block block-motor">set_m8_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Propeller thrust (1000-2000 PWM).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Real-time flight stabilization, asymmetric thrust compensation, or aerodynamic load balancing during dynamic maneuvers.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/motor_6.png" alt="Motor M6 Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Propeller thrust (1000-2000 PWM).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Motor response curve tuning, connectivity verification, or
+                                    differential thrust maneuvers for advanced flight control.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -430,28 +713,124 @@
                 <!-- 7. Remote Control -->
                 <section id="Remote">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">7. Remote Control</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Read and override remote control inputs</span> from your transmitter or create programmatic flight control overrides.
+                            <span class="font-bold text-slate-100">Read and override remote control inputs</span> from
+                            your transmitter or create programmatic flight control overrides.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Monitor stick positions, trigger actions based on user input, or implement autopilot features by overriding RC channels with software-controlled values.
+                            Monitor stick positions, trigger actions based on user input, or implement autopilot
+                            features by overriding RC channels with software-controlled values.
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div class="info-card">
-                            <h4 class="font-bold">Read Stick Position</h4>
-                            <div class="pb-block block-remote">rc_roll_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Reads raw joystick value (1000-2000).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Gesture-based flight command detection, advanced manual control response logic, or transmitter input analysis for trick activation.</p></div>
+                            <h4 class="font-bold">Read RC Roll</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/remote_1.png" alt="Read RC Roll Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reads current Roll stick input (1000-2000).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Detect banking commands for custom gestures.</p>
+                            </div>
                         </div>
                         <div class="info-card">
-                            <h4 class="font-bold">Set Control Value</h4>
-                            <div class="pb-block block-remote">set_pitch_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Overrides stick inputs with software values.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Autonomous flight path execution, augmented reality drone control, or programmatic RC override for hybrid manual-autonomous missions.</p></div>
+                            <h4 class="font-bold">Read RC Pitch</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/remote_2.png" alt="Read RC Pitch Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reads current Pitch stick input (1000-2000).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Monitor forward/backward commands.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Read RC Throttle</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/remote_3.png" alt="Read RC Throttle Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reads current Throttle stick input (1000-2000).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Trigger altitude-based events.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Read RC Yaw</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/remote_4.png" alt="Read RC Yaw Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Reads current Yaw stick input (1000-2000).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Detect rotation commands.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <h4 class="font-bold">Set RC Roll</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/remote_5.png" alt="Set RC Roll Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Overrides Roll channel with custom value.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Automated banking maneuvers.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Set RC Pitch</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/remote_6.png" alt="Set RC Pitch Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Overrides Pitch channel with custom value.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Autonomous forward flight control.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Set RC Throttle</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/remote_7.png" alt="Set RC Throttle Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Overrides Throttle channel with custom value.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Auto-hover or altitude hold logic.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Set RC Yaw</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/remote_8.png" alt="Set RC Yaw Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Overrides Yaw channel with custom value.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Automated rotation or heading lock.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -459,52 +838,90 @@
                 <!-- 8. Sensor -->
                 <section id="Sensor">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">8. Sensor Data</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Access raw sensor data</span> from your drone's IMU, accelerometer, gyroscope, and battery management system for custom logic.
+                            <span class="font-bold text-slate-100">Access raw sensor data</span> from your drone's IMU,
+                            accelerometer, gyroscope, and battery management system for custom logic.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Read acceleration forces, rotational rates, magnetic heading, battery voltage, and health status to make intelligent decisions about flight safety, duration, and performance optimization.
+                            Read acceleration forces, rotational rates, magnetic heading, battery voltage, and health
+                            status to make intelligent decisions about flight safety, duration, and performance
+                            optimization.
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
                             <h3 class="font-bold">Accelerometer X/Y/Z</h3>
-                            <div class="pb-block block-sensor">get_acc_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Linear acceleration in G-forces on selected axis.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Impact-triggered safety responses, gesture-based flight control through throw-to-launch detection, or flight intensity monitoring for maneuver analysis.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/sensor_1.png" alt="Accelerometer Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Linear acceleration in G-forces on selected axis.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Impact-triggered safety responses, gesture-based flight control
+                                    through throw-to-launch detection, or flight intensity monitoring for maneuver
+                                    analysis.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Gyroscope X/Y/Z</h3>
-                            <div class="pb-block block-sensor">get_gyro_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Rotational velocity (degrees per second) on selected axis.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Spin rate-triggered actions, rotation speed monitoring for acrobatic maneuvers, or angular velocity-based flight behavior modification.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/sensor_2.png" alt="Gyroscope Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Rotational velocity (degrees per second) on selected axis.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Spin rate-triggered actions, rotation speed monitoring for
+                                    acrobatic maneuvers, or angular velocity-based flight behavior modification.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Magnetometer Heading</h3>
-                            <div class="pb-block block-sensor">get_mag_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Compass heading (0-360 degrees).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Autonomous waypoint navigation, compass-based return-to-home functionality, or cardinal direction-aware mission planning.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/sensor_3.png" alt="Magnetometer Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Compass heading (0-360 degrees).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Autonomous waypoint navigation, compass-based return-to-home
+                                    functionality, or cardinal direction-aware mission planning.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Battery Voltage</h3>
-                            <div class="pb-block block-sensor">battery_voltage_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Returns raw battery cell voltage (mV).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Real-time battery health monitoring, voltage-triggered failsafe procedures, or flight-time estimation based on remaining cell voltage.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/sensor_4.png" alt="Battery Voltage Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Returns raw battery cell voltage (mV).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Real-time battery health monitoring, voltage-triggered failsafe
+                                    procedures, or flight-time estimation based on remaining cell voltage.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Battery Health</h3>
-                            <div class="pb-block block-sensor">battery_health_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Battery percentage (0-100%) and cycle count.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Predictive battery life calculation, charge cycle monitoring for maintenance alerts, or health-based mission planning constraints.</p></div>
-                        </div>
-                        <div class="info-card">
-                            <h3 class="font-bold">Temperature Sensor</h3>
-                            <div class="pb-block block-sensor">get_temp_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Internal controller temperature (°C).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Thermal throttling safety protocols, CPU overheat detection with visual/audio warnings, or temperature-based mission abort procedures.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/sensor_5.png" alt="Battery Health Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Battery percentage (0-100%) and cycle count.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Predictive battery life calculation, charge cycle monitoring for
+                                    maintenance alerts, or health-based mission planning constraints.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -512,28 +929,86 @@
                 <!-- 9. Current State -->
                 <section id="State">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">9. Current State</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Monitor your drone's real-time state</span> including attitude angles, altitude, and position data from the flight controller.
+                            <span class="font-bold text-slate-100">Monitor your drone's real-time state</span> including
+                            attitude angles, altitude, and position data from the flight controller.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Access roll, pitch, yaw, and altitude readings to implement stabilization logic, altitude ceilings, or feedback-based autonomous flight routines.
+                            Access roll, pitch, yaw, and altitude readings to implement stabilization logic, altitude
+                            ceilings, or feedback-based autonomous flight routines.
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h3 class="font-bold">Orientation Angles</h3>
-                            <div class="pb-block block-state">current_roll_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Real-time attitude in degrees.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Precision attitude maintenance for level flight, acrobatic maneuver verification, or feedback-based stability control algorithms.</p></div>
+                            <h3 class="font-bold">Current Roll</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/current_1.png" alt="Current Roll Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Real-time roll angle in degrees.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Precision attitude maintenance for level flight, acrobatic maneuver
+                                    verification, or feedback-based stability control algorithms.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="font-bold">Current Pitch</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/current_2.png" alt="Current Pitch Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Real-time pitch angle in degrees.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Maintain forward flight angle or detect stall conditions.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="font-bold">Current Yaw</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/current_3.png" alt="Current Yaw Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Real-time yaw angle in degrees.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Heading lock implementation or rotation tracking.</p>
+                            </div>
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Current Height</h3>
-                            <div class="pb-block block-state">current_height_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Altitude relative to takeoff (cm).</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Altitude ceiling enforcement, terrain-aware autonomous flight, or altitude-triggered mission phase transitions.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/current_4.png" alt="Current Height Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Altitude relative to takeoff (cm).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Altitude ceiling enforcement, terrain-aware autonomous flight, or
+                                    altitude-triggered mission phase transitions.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="font-bold">Trim Value</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/current_5.png" alt="Trim Value Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Current trim offset value.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Auto-trimming algorithms or drift compensation logic.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -541,22 +1016,58 @@
                 <!-- 10. Desired State -->
                 <section id="Desired">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">10. Desired State</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Set target flight angles</span> for your drone to reach specific orientations while the flight controller maintains stabilization.
+                            <span class="font-bold text-slate-100">Set target flight angles</span> for your drone to
+                            reach specific orientations while the flight controller maintains stabilization.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Command desired pitch, roll, and yaw angles to create smooth automated flight patterns, circular movements, or precision positioning routines.
+                            Command desired pitch, roll, and yaw angles to create smooth automated flight patterns,
+                            circular movements, or precision positioning routines.
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h4 class="font-bold">Set Target Angle</h4>
-                            <div class="pb-block block-desired">desired_pitch_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Commands flight controller to reach specific angle.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Circular flight pattern generation, coordinated banking maneuvers, or precision angle-based autonomous flight routines.</p></div>
+                            <h4 class="font-bold">Desired Roll</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/desired_1.png" alt="Desired Roll Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Sets target roll angle.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Coordinated banking maneuvers.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Desired Pitch</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/desired_2.png" alt="Desired Pitch Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Sets target pitch angle.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Controlled forward/backward flight speed.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Desired Yaw</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/desired_3.png" alt="Desired Yaw Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Sets target yaw rate/angle.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Smooth panning for video shots.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -564,22 +1075,46 @@
                 <!-- 11. Flight Mode -->
                 <section id="Mode">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">11. Flight Mode</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Query active flight modes</span> to determine if your drone is operating in headfree mode or other specialized flight configurations.
+                            <span class="font-bold text-slate-100">Query active flight modes</span> to determine if your
+                            drone is operating in headfree mode or other specialized flight configurations.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Use flight mode information to trigger mode-specific behaviors or provide feedback through LEDs and other indicators.
+                            Use flight mode information to trigger mode-specific behaviors or provide feedback through
+                            LEDs and other indicators.
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="info-card">
                             <h3 class="font-bold">Is Headfree?</h3>
-                            <div class="pb-block block-mode">is_headfree_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Checks if drone is in direction-relative mode.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Mode-specific LED indicators, flight mode confirmation display, or mode-dependent behavior switching for dynamic flight control.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_1.png" alt="Headfree Mode Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if drone is in direction-relative mode.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Mode-specific LED indicators, flight mode confirmation display, or
+                                    mode-dependent behavior switching for dynamic flight control.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="font-bold">MagHold Mode</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_2.png" alt="MagHold Mode Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if heading lock is active.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Visual feedback for maghold status or mode transition alerts.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -587,195 +1122,560 @@
                 <!-- 12. Flight Status -->
                 <section id="Status">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">12. Flight Status</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
                         <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Monitor critical drone status</span> including armed state, crash detection, and flight safety conditions.
+                            <span class="font-bold text-slate-100">Monitor critical drone status</span> including armed
+                            state, crash detection, and flight safety conditions.
                         </p>
                         <p class="text-slate-200 leading-relaxed">
-                            Implement emergency handling, safety checks, and status-dependent behaviors. Build robust programs that respond to real-time operational state changes.
+                            Implement emergency handling, safety checks, and status-dependent behaviors. Build robust
+                            programs that respond to real-time operational state changes.
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card border-l-4 border-l-green-400">
                             <h4 class="font-bold">Is Armed?</h4>
-                            <div class="pb-block block-status">is_armed_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Returns True if motors are unlocked.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Motor command safety gates, flight-ready status confirmation, or armed state dependent automation routines.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_status_1.png" alt="Is Armed Block"
+                                    class="w-auto h-auto max-w-full"></div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Returns True if motors are unlocked.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Motor command safety gates, flight-ready status confirmation, or
+                                    armed state dependent automation routines.</p>
+                            </div>
                         </div>
                         <div class="info-card border-l-4 border-l-red-500">
                             <h4 class="font-bold">Crashed?</h4>
-                            <div class="pb-block block-status">is_crashed_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Returns True on heavy impact.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Immediate motor cutoff on collision, impact-based emergency procedures, or crash recovery logging and notification.</p></div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_status_2.png" alt="Crashed Block"
+                                    class="w-auto h-auto max-w-full"></div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Returns True on heavy impact.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Immediate motor cutoff on collision, impact-based emergency
+                                    procedures, or crash recovery logging and notification.</p>
+                            </div>
                         </div>
-                        <div class="info-card border-l-4 border-l-yellow-500">
-                            <h4 class="font-bold">Signal Loss?</h4>
-                            <div class="pb-block block-status">signal_loss_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Returns True if RC signal is disconnected.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Failsafe landing sequences, loss-of-link recovery procedures, or signal restoration monitoring and alerts.</p></div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Is Auto Stable?</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_status_3.png" alt="Is Auto Stable Block"
+                                    class="w-auto h-auto max-w-full"></div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if auto-stability is active.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Conditional logic for stability-dependent maneuvers.</p>
+                            </div>
                         </div>
-                        <div class="info-card border-l-4 border-l-orange-500">
-                            <h4 class="font-bold">Battery Low?</h4>
-                            <div class="pb-block block-status">battery_low_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Returns True when battery below threshold.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Visual/audio battery warning systems, automatic return-to-home activation, or mission abort procedures on critical battery levels.</p></div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Is Alt Hold?</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_status_4.png" alt="Is Alt Hold Block"
+                                    class="w-auto h-auto max-w-full"></div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if altitude hold is engaged.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Triggering photo capture when hovering at stable altitude.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Is Dev Mode?</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_status_5.png" alt="Is Dev Mode Block"
+                                    class="w-auto h-auto max-w-full"></div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if developer mode is active.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Enabling advanced debugging features or experimental flight
+                                    controls.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Is Mag Hold?</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_status_6.png" alt="Is Mag Hold Block"
+                                    class="w-auto h-auto max-w-full"></div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if magnetometer hold is active.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Visual indication of heading lock status.</p>
+                            </div>
                         </div>
                         <div class="info-card border-l-4 border-l-blue-500">
                             <h4 class="font-bold">Flying?</h4>
                             <div class="pb-block block-status">is_flying_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Returns True if drone is airborne.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Airborne-only command gating, aerial maneuver execution guards, or flight phase dependent behavior modifications.</p></div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Returns True if drone is airborne.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Airborne-only command gating, aerial maneuver execution guards, or
+                                    flight phase dependent behavior modifications.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- 13. Console -->
-                <section id="Console">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">13. Console</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
-                        <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Debug and monitor your programs</span> by sending messages and sensor values to the Pluto Monitor application in real-time.
-                        </p>
-                        <p class="text-slate-200 leading-relaxed">
-                            Track program flow, display live sensor data, and verify that your automation logic is executing correctly during flight tests.
-                        </p>
-                    </div>
+    <!-- 13. Console -->
+    <section id="Console">
+        <h2 class="text-3xl font-black text-sky-400 mb-10">13. Console</h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="info-card">
-                            <h4 class="font-bold">Print Message</h4>
-                            <div class="pb-block block-function">pluto_monitor_print_x2</div>
-                            <div><span class="label">Function</span><p class="text-body">Sends text to the Pluto Monitor app.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Real-time mission debugging, autonomous logic verification, or flight event logging for post-mission analysis.</p></div>
-                        </div>
-                        <div class="info-card">
-                            <h4 class="font-bold">Print Text + Value</h4>
-                            <div class="pb-block block-function">pluto_monitor_print_x2_var</div>
-                            <div><span class="label">Function</span><p class="text-body">Shows a label with a live sensor number.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Live sensor telemetry monitoring, variable state tracking during flight, or sensor data logging for performance optimization.</p></div>
-                        </div>
-                    </div>
-                </section>
+        <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+            <p class="text-slate-200 leading-relaxed mb-4">
+                <span class="font-bold text-slate-100">Debug and monitor your programs</span> by sending
+                messages and sensor values to the Pluto Monitor application in real-time.
+            </p>
+            <p class="text-slate-200 leading-relaxed">
+                Track program flow, display live sensor data, and verify that your automation logic is
+                executing correctly during flight tests.
+            </p>
+        </div>
 
-                <!-- 14. Logic -->
-                <section id="Logic">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">14. Logic</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
-                        <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Create conditional decision-making</span> in your programs using if-then statements and logical operators.
-                        </p>
-                        <p class="text-slate-200 leading-relaxed">
-                            Build intelligent automation by combining multiple conditions with AND, OR, and NOT operators to control complex flight behaviors.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="info-card">
-                            <h4 class="font-bold">If This, Then That</h4>
-                            <div class="pb-block block-logic">controls_if</div>
-                            <div><span class="label">Function</span><p class="text-body">Decision making block based on conditions.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Conditional flight path planning, sensor-based autonomous decision making, or altitude-dependent thrust adjustments.</p></div>
-                        </div>
-                        <div class="info-card">
-                            <h4 class="font-bold">Both True? (AND)</h4>
-                            <div class="pb-block block-logic">logic_operation</div>
-                            <div><span class="label">Function</span><p class="text-body">Combines two conditions.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Complex multi-factor decision logic, failsafe condition combinations, or cooperative sensor-based automation triggers.</p></div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 15. Loops -->
-                <section id="Loops">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">15. Loops</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
-                        <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Repeat code blocks</span> using for loops and while loops to execute sequences multiple times without duplication.
-                        </p>
-                        <p class="text-slate-200 leading-relaxed">
-                            Build repetitive flight patterns, pattern-based LED indicators, or condition-dependent flight sequences that run until specific criteria are met.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="info-card">
-                            <h4 class="font-bold">For Loop (Counter)</h4>
-                            <div class="pb-block block-logic">controls_for</div>
-                            <div><span class="label">Function</span><p class="text-body">Repeats an action for a specific count.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Repetitive status indication patterns, sequential motor testing routines, or counted autonomous flight sequences.</p></div>
-                        </div>
-                        <div class="info-card">
-                            <h4 class="font-bold">Repeat While</h4>
-                            <div class="pb-block block-logic">controls_whileUntil</div>
-                            <div><span class="label">Function</span><p class="text-body">Repeats code as long as a condition is met.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Persistent condition monitoring, altitude-dependent motor control, or sensor-driven continuous operation loops.</p></div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 16. Math -->
-                <section id="Math">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">16. Math</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
-                        <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Perform mathematical operations</span> including clamping, rounding, random values, and other calculations.
-                        </p>
-                        <p class="text-slate-200 leading-relaxed">
-                            Process sensor data, constrain control values to safe ranges, generate random patterns, or compute complex flight algorithms.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="info-card">
-                            <h4 class="font-bold">Clamp (Limit)</h4>
-                            <div class="pb-block block-math">math_constrain</div>
-                            <div><span class="label">Function</span><p class="text-body">Keeps a number inside a range.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Motor control safety bounds enforcement, sensor value normalization, or command output range validation.</p></div>
-                        </div>
-                        <div class="info-card">
-                            <h4 class="font-bold">Random Integer</h4>
-                            <div class="pb-block block-math">math_random_int</div>
-                            <div><span class="label">Function</span><p class="text-body">Picks a whole number randomly.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Randomized flight patterns for coverage missions, stochastic behavior simulation, or non-deterministic autonomous routines.</p></div>
-                        </div>
-                        <div class="info-card">
-                            <h4 class="font-bold">Round</h4>
-                            <div class="pb-block block-math">math_round</div>
-                            <div><span class="label">Function</span><p class="text-body">Removes decimals from a number.</p></div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 17. Variables -->
-                <section id="Variables">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">17. Variables</h2>
-                    
-                    <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
-                        <p class="text-slate-200 leading-relaxed mb-4">
-                            <span class="font-bold text-slate-100">Store and manage data</span> using variables to track values throughout your program's execution.
-                        </p>
-                        <p class="text-slate-200 leading-relaxed">
-                            Create counters, store sensor readings, track state information, and build dynamic flight logic that adapts based on stored data values.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="info-card">
-                            <h4 class="font-bold">Store Data</h4>
-                            <div class="pb-block block-var">set_intVariable_to</div>
-                            <div><span class="label">Function</span><p class="text-body">Creates a temporary memory to hold a number.</p></div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span><p class="text-body">Flight reference point tracking, mission state persistence, or historical data logging for performance analysis and recovery sequences.</p></div>
-                        </div>
-                    </div>
-                </section>
-
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="info-card">
+                <h4 class="font-bold">Print Message</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/console_1.png" alt="Print Message Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Sends text to the Pluto Monitor app.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Real-time mission debugging, autonomous logic verification, or
+                        flight event logging for post-mission analysis.</p>
+                </div>
             </div>
+            <div class="info-card">
+                <h4 class="font-bold">Print Text + Value</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/console_2.png" alt="Print Text + Value Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Shows a label with a live sensor number.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Live sensor telemetry monitoring, variable state tracking during
+                        flight, or sensor data logging for performance optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. Logic -->
+    <section id="Logic">
+        <h2 class="text-3xl font-black text-sky-400 mb-10">14. Logic</h2>
+
+        <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+            <p class="text-slate-200 leading-relaxed mb-4">
+                <span class="font-bold text-slate-100">Create conditional decision-making</span> in your
+                programs using if-then statements and logical operators.
+            </p>
+            <p class="text-slate-200 leading-relaxed">
+                Build intelligent automation by combining multiple conditions with AND, OR, and NOT
+                operators to control complex flight behaviors.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="info-card">
+                <h4 class="font-bold">If This, Then That</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/logic_1.png" alt="If This, Then That Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Decision making block based on conditions.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Conditional flight path planning, sensor-based autonomous decision
+                        making, or altitude-dependent thrust adjustments.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Both True? (AND)</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/logic_2.png" alt="Both True? (AND) Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Combines two conditions.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Complex multi-factor decision logic, failsafe condition
+                        combinations, or cooperative sensor-based automation triggers.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Compare</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/logic_3.png" alt="Compare Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Compares two values.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Sensor value thresholding, state comparison, or event-triggering
+                        based on value equality.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Not</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/logic_4.png" alt="Not Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Inverts a condition.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">State inversion, condition negation, or toggling between two states.
+                    </p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Boolean</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/logic_5.png" alt="Boolean Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Represents a true or false value.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Flagging events, tracking states, or representing binary conditions.
+                    </p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Null</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/logic_6.png" alt="Null Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Represents an empty or null value.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Initializing variables, representing empty values, or checking for
+                        the absence of a value.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Ternary</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/logic_7.png" alt="Ternary Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">A compact if-then-else block.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Conditional value assignment, state-based value selection, or
+                        compact conditional logic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. Loops -->
+    <section id="Loops">
+        <h2 class="text-3xl font-black text-sky-400 mb-10">15. Loops</h2>
+
+        <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+            <p class="text-slate-200 leading-relaxed mb-4">
+                <span class="font-bold text-slate-100">Repeat code blocks</span> using for loops and while
+                loops to execute sequences multiple times without duplication.
+            </p>
+            <p class="text-slate-200 leading-relaxed">
+                Build repetitive flight patterns, pattern-based LED indicators, or condition-dependent
+                flight sequences that run until specific criteria are met.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="info-card">
+                <h4 class="font-bold">For Loop (Counter)</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/loops_1.png" alt="For Loop (Counter) Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Repeats an action for a specific count.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Repetitive status indication patterns, sequential motor testing
+                        routines, or counted autonomous flight sequences.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Repeat While</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/loops_2.png" alt="Repeat While Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Repeats code as long as a condition is met.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Persistent condition monitoring, altitude-dependent motor control,
+                        or sensor-driven continuous operation loops.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Repeat</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/loops_3.png" alt="Repeat Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Repeats an action for a specific number of times.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Repetitive status indication patterns, sequential motor testing
+                        routines, or counted autonomous flight sequences.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Break/Continue</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/loops_4.png" alt="Break/Continue Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Exits or skips an iteration of a loop.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Emergency loop termination, skipping an iteration based on a
+                        condition, or creating complex loop control flow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 16. Math -->
+    <section id="Math">
+        <h2 class="text-3xl font-black text-sky-400 mb-10">16. Math</h2>
+
+        <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+            <p class="text-slate-200 leading-relaxed mb-4">
+                <span class="font-bold text-slate-100">Perform mathematical operations</span> including
+                clamping, rounding, random values, and other calculations.
+            </p>
+            <p class="text-slate-200 leading-relaxed">
+                Process sensor data, constrain control values to safe ranges, generate random patterns, or
+                compute complex flight algorithms.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="info-card">
+                <h4 class="font-bold">Arithmetic</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_1.png" alt="Arithmetic Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Performs basic arithmetic operations.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Sensor data processing, control value calculation, or any other
+                        mathematical calculation.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Single</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_2.png" alt="Single Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Performs a single mathematical operation.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Sensor data processing, control value calculation, or any other
+                        mathematical calculation.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Trigonometry</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_3.png" alt="Trigonometry Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Performs trigonometric operations.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Sensor data processing, control value calculation, or any other
+                        mathematical calculation.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Number Property</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_4.png" alt="Number Property Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Checks if a number is even, odd, prime, whole, positive,
+                        negative, or divisible by a certain number.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Sensor data processing, control value calculation, or any other
+                        mathematical calculation.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Round</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_5.png" alt="Round Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Rounds a number to the nearest integer.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Sensor data processing, control value calculation, or any other
+                        mathematical calculation.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Change</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_6.png" alt="Change Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Adds a number to a variable.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Sensor data processing, control value calculation, or any other
+                        mathematical calculation.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Clamp (Limit)</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_7.png" alt="Clamp (Limit) Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Keeps a number inside a range.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Motor control safety bounds enforcement, sensor value
+                        normalization, or command output range validation.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Random Integer</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_8.png" alt="Random Integer Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Picks a whole number randomly.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Randomized flight patterns for coverage missions, stochastic
+                        behavior simulation, or non-deterministic autonomous routines.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Random Float</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_9.png" alt="Random Float Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Picks a random number between 0 and 1.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Randomized flight patterns for coverage missions, stochastic
+                        behavior simulation, or non-deterministic autonomous routines.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Atan2</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_10.png" alt="Atan2 Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Returns the angle in degrees from the x-axis to a point (y, x).
+                    </p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Sensor data processing, control value calculation, or any other
+                        mathematical calculation.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Modulo</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/math_11.png" alt="Modulo Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Returns the remainder of a division.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Sensor data processing, control value calculation, or any other
+                        mathematical calculation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. Variables -->
+    <section id="Variables">
+        <h2 class="text-3xl font-black text-sky-400 mb-10">17. Variables</h2>
+
+        <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+            <p class="text-slate-200 leading-relaxed mb-4">
+                <span class="font-bold text-slate-100">Store and manage data</span> using variables to track
+                values throughout your program's execution.
+            </p>
+            <p class="text-slate-200 leading-relaxed">
+                Create counters, store sensor readings, track state information, and build dynamic flight
+                logic that adapts based on stored data values.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="info-card">
+                <h4 class="font-bold">Store Data</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/variables_1.png" alt="Store Data Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Creates a temporary memory to hold a number.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Flight reference point tracking, mission state persistence, or
+                        historical data logging for performance analysis and recovery sequences.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Get Data</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/variables_2.png" alt="Get Data Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Retrieves a value from a variable.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Flight reference point tracking, mission state persistence, or
+                        historical data logging for performance analysis and recovery sequences.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4 class="font-bold">Change Data</h4>
+                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <img src="gbassets/variables_3.png" alt="Change Data Block" class="w-auto h-auto max-w-full">
+                </div>
+                <div><span class="label">Function</span>
+                    <p class="text-body">Changes the value of a variable by a certain amount.</p>
+                </div>
+                <div class="use-case-box"><span class="label">Project Ideas</span>
+                    <p class="text-body">Flight reference point tracking, mission state persistence, or
+                        historical data logging for performance analysis and recovery sequences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
 
             <footer class="bg-slate-900 border-t border-slate-700 py-12 px-6 lg:px-12 text-center">
                 <p class="text-xs text-slate-500">&copy; 2026 Drona Aviation.</p>
@@ -845,18 +1745,18 @@
                 document.querySelectorAll('.sidebar-item').forEach(li => li.classList.remove('active'));
                 link.classList.add('active');
 
-                if(window.innerWidth < 1024) sidebar.classList.add('-translate-x-full');
+                if (window.innerWidth < 1024) sidebar.classList.add('-translate-x-full');
 
                 scrollTimeout = setTimeout(() => {
                     isManualScrolling = false;
-                }, 1000); 
+                }, 1000);
             });
         });
 
         // Precise Observer with adjusted margins for standard screen sizes
         const observerOptions = {
             root: null,
-            rootMargin: '-10% 0px -85% 0px', 
+            rootMargin: '-10% 0px -85% 0px',
             threshold: 0
         };
 
@@ -880,4 +1780,5 @@
         document.querySelectorAll('section').forEach(section => observer.observe(section));
     </script>
 </body>
+
 </html>
