@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlutoBlocks V4 | Official X2 Technical Manual</title>
-    <script src="./tailwind.css"></script>
+    <script src="./style.css"></script>
+    <link href="./style.css" rel="stylesheet">
     <link href="./font-awesome-min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -783,6 +784,50 @@
     </div>
 
     <script>
+        // --- 1. LOCAL MODULE LOADING ---
+  // Uses the local @electron folder you'll bundle in the ZIP
+  const remoteRendererPath = './@electron/remote/dist/src/renderer/remote.js';
+  const { BrowserWindow: RemoteBrowserWindow, app: remoteApp } = require(remoteRendererPath);
+
+  const path = require('path');
+  const fs = require('fs');
+
+  // --- 2. PATH RESOLUTION ---
+  const appPathArg = window.process.argv.find(arg => arg.startsWith('--appPath='));
+  const appRoot = appPathArg ? appPathArg.split('=')[1] : '';
+
+  // Use the unified updater in your main installation's src folder
+  const updaterPath = path.join(appRoot, 'src', 'docUpdater.js'); 
+  const { syncGuideBook, guideCacheDir } = require(updaterPath);
+
+  // --- 3. VERSION DISPLAY ---
+  function displayCurrentVersion() {
+    if (!guideCacheDir) return;
+    const versionPath = path.join(guideCacheDir, 'version.json');
+    // Note: You might want to add <div id="guide-version"></div> to your header
+    const versionEl = document.getElementById('guide-version'); 
+    
+    try {
+      if (fs.existsSync(versionPath)) {
+        const data = JSON.parse(fs.readFileSync(versionPath, 'utf8'));
+        if (versionEl) versionEl.textContent = `V4 MANUAL: ${data.tag}`;
+      }
+    } catch (e) { console.error("Version check failed", e); }
+  }
+
+  // --- 4. BACKGROUND SYNC LOGIC ---
+  (async () => {
+    console.log("[Guide-Book] Checking for technical updates...");
+    displayCurrentVersion();
+    try {
+      const updated = await syncGuideBook();
+      if (updated) {
+        console.log("[Guide-Book] New technical manual downloaded to AppData.");
+      }
+    } catch (e) {
+      console.warn("[Guide-Book] Update check failed:", e.message);
+    }
+  })();
         const menuBtn = document.getElementById('menuBtn');
         const sidebar = document.getElementById('sidebar');
         let isManualScrolling = false;
