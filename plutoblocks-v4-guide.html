@@ -1888,26 +1888,27 @@
         // --- 1. LOCAL MODULE LOADING ---
         // Uses the local @electron folder you'll bundle in the ZIP
         const remoteRendererPath = './@electron/remote/dist/src/renderer/remote.js';
+        
+        // We import 'dialog' here so we can use it later globally
         const { BrowserWindow: RemoteBrowserWindow, app: remoteApp, dialog } = require(remoteRendererPath);
-
+    
         const path = require('path');
         const fs = require('fs');
-
+    
         // --- 2. PATH RESOLUTION ---
         const appPathArg = window.process.argv.find(arg => arg.startsWith('--appPath='));
         const appRoot = appPathArg ? appPathArg.split('=')[1] : '';
-
+    
         // Use the unified updater in your main installation's src folder
         const updaterPath = path.join(appRoot, 'src', 'docUpdater.js');
         const { syncGuideBook, guideCacheDir } = require(updaterPath);
-
+    
         // --- 3. VERSION DISPLAY ---
         function displayCurrentVersion() {
             if (!guideCacheDir) return;
             const versionPath = path.join(guideCacheDir, 'version.json');
-            // Note: You might want to add <div id="guide-version"></div> to your header
             const versionEl = document.getElementById('guide-version');
-
+    
             try {
                 if (fs.existsSync(versionPath)) {
                     const data = JSON.parse(fs.readFileSync(versionPath, 'utf8'));
@@ -1915,7 +1916,7 @@
                 }
             } catch (e) { console.error("Version check failed", e); }
         }
-
+    
         // --- 4. BACKGROUND SYNC LOGIC ---
         (async () => {
             console.log("[Guide-Book] Checking for technical updates...");
@@ -1929,102 +1930,93 @@
                 console.warn("[Guide-Book] Update check failed:", e.message);
             }
         })();
+    
+        // --- 5. UI INTERACTION ---
         const menuBtn = document.getElementById('menuBtn');
         const sidebar = document.getElementById('sidebar');
         let isManualScrolling = false;
         let scrollTimeout;
-
+    
         menuBtn.addEventListener('click', () => {
             sidebar.classList.toggle('-translate-x-full');
         });
-
+    
         document.querySelectorAll('.sidebar-item').forEach(link => {
             link.addEventListener('click', (e) => {
                 isManualScrolling = true;
                 clearTimeout(scrollTimeout);
-
                 document.querySelectorAll('.sidebar-item').forEach(li => li.classList.remove('active'));
                 link.classList.add('active');
-
                 if (window.innerWidth < 1024) sidebar.classList.add('-translate-x-full');
-
-                scrollTimeout = setTimeout(() => {
-                    isManualScrolling = false;
-                }, 1000);
+                scrollTimeout = setTimeout(() => { isManualScrolling = false; }, 1000);
             });
         });
-
-        // Precise Observer with adjusted margins for standard screen sizes
+    
+        // Precise Observer
         const observerOptions = {
             root: null,
             rootMargin: '-10% 0px -85% 0px',
             threshold: 0
         };
-
+    
         const observer = new IntersectionObserver((entries) => {
             if (isManualScrolling) return;
-
             const visible = entries.filter(e => e.isIntersecting);
             if (visible.length > 0) {
-                // Find the entry with the smallest absolute top offset
                 const closest = visible.reduce((prev, curr) => {
                     return (Math.abs(curr.boundingClientRect.top) < Math.abs(prev.boundingClientRect.top) ? curr : prev);
                 });
-
                 const id = closest.target.getAttribute('id');
                 document.querySelectorAll('.sidebar-item').forEach(link => {
                     link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
                 });
             }
         }, observerOptions);
-
+    
         document.querySelectorAll('section').forEach(section => observer.observe(section));
-
-        // --- 2. NEW EXPORT FUNCTION ---
+    
+        // --- 6. EXPORT FUNCTION (FIXED) ---
         async function exportToPDF() {
             const btn = document.getElementById('pdfBtn');
-
-            // 1. SAVE: Store the original button look (icon + text)
             const originalContent = btn.innerHTML;
-
-            // 2. LOADING STATE: Replace content with a spinning SVG
+    
+            // Visual Loading State
             btn.style.opacity = '0.7';
-            btn.style.pointerEvents = 'none'; // Prevent double-clicking
+            btn.style.pointerEvents = 'none';
             btn.innerHTML = `
-        <svg class="fa-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" style="width:24px;height:24px;animation:spin 1s linear infinite;">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-        <div class="text-container"><span class="main-text">Saving...</span></div>
-    `;
-
+                <svg class="fa-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" style="width:24px;height:24px;animation:spin 1s linear infinite;">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="white" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <div class="text-container"><span class="main-text">Saving...</span></div>
+            `;
+    
             try {
-                const win = BrowserWindow.getFocusedWindow();
-
-                // 3. GENERATE: Create PDF data in memory (Fixes "Blank Preview" issue)
+                // FIX: Use the 'RemoteBrowserWindow' we defined at the top of the script
+                const win = RemoteBrowserWindow.getFocusedWindow();
+    
                 const data = await win.webContents.printToPDF({
                     printBackground: true,
                     pageSize: 'A4',
                     margins: { top: 0, bottom: 0, left: 0, right: 0 }
                 });
-
-                // 4. SAVE: Open the system "Save As" dialog
+    
+                // FIX: Use the 'dialog' we defined at the top of the script
                 const { filePath } = await dialog.showSaveDialog({
                     title: 'Save Manual',
                     defaultPath: 'PlutoBlocks-V4-Guide.pdf',
                     filters: [{ name: 'PDF Files', extensions: ['pdf'] }]
                 });
-
-                // 5. WRITE: Save the file to disk
+    
                 if (filePath) {
                     fs.writeFileSync(filePath, data);
                 }
-
+    
             } catch (error) {
                 console.error("PDF generation failed:", error);
                 alert("Could not generate PDF: " + error.message);
             } finally {
-                // 6. RESTORE: Put the original icon and text back
+                // Restore button
                 btn.innerHTML = originalContent;
                 btn.style.opacity = '1';
                 btn.style.pointerEvents = 'auto';
