@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -236,42 +237,71 @@
         }
 
         /* Float PDF Button Styling */
+        /* Enhanced Float PDF Button Styling */
         .export-pdf-fab {
             position: fixed;
             bottom: 2rem;
-            right: 1rem;
-            background: #0ea5e9;
+            right: 2rem;
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
             color: white;
-            width: 3.5rem;
-            height: 3.5rem;
-            border-radius: 50%;
+            padding: 12px 24px;
+            border-radius: 50px;
+            /* Pill shape */
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            line-height: 1.1;
-            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.5);
             z-index: 1000;
+            cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
         }
 
         .export-pdf-fab:hover {
-            background: #0284c7;
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 12px 24px rgba(14, 165, 233, 0.5);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 30px -10px rgba(14, 165, 233, 0.6);
+        }
+
+        .export-pdf-fab:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Icon Styling */
+        .export-pdf-fab i {
+            font-size: 1.2rem;
+        }
+
+        /* Text Styling */
+        .export-pdf-fab .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.1;
         }
 
         .export-pdf-fab .small-text {
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            opacity: 0.8;
-            letter-spacing: 0.05em;
+            opacity: 0.9;
+            letter-spacing: 0.1em;
+            font-weight: 600;
         }
 
         .export-pdf-fab .main-text {
-            font-size: 0.9rem;
-            letter-spacing: 0.02em;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        /* Loading Spinner (Optional for later) */
+        .fa-spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
@@ -1888,7 +1918,7 @@
         // --- 1. LOCAL MODULE LOADING ---
         // Uses the local @electron folder you'll bundle in the ZIP
         const remoteRendererPath = './@electron/remote/dist/src/renderer/remote.js';
-        const { BrowserWindow: RemoteBrowserWindow, app: remoteApp } = require(remoteRendererPath);
+        const { BrowserWindow: RemoteBrowserWindow, app: remoteApp, dialog } = require(remoteRendererPath);
 
         const path = require('path');
         const fs = require('fs');
@@ -1980,16 +2010,59 @@
 
         document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-        function exportToPDF() {
-            window.print();
+        // --- 2. NEW EXPORT FUNCTION ---
+        async function exportToPDF() {
+            const btn = document.getElementById('pdfBtn');
+            const originalIcon = btn.querySelector('i').className;
+
+            // Visual Feedback: Change icon to spinner
+            btn.querySelector('i').className = 'fas fa-spinner';
+            btn.style.opacity = '0.7';
+
+            try {
+                const win = RemoteBrowserWindow.getFocusedWindow();
+
+                // 1. Generate PDF Data (Background)
+                // This renders the PDF in memory without opening a print dialog
+                const data = await win.webContents.printToPDF({
+                    printBackground: true,
+                    pageSize: 'A4',
+                    margins: { top: 0, bottom: 0, left: 0, right: 0 } // CSS handles margins
+                });
+
+                // 2. Open "Save As" Dialog
+                const { filePath } = await dialog.showSaveDialog({
+                    title: 'Save Manual',
+                    defaultPath: 'PlutoBlocks-V4-Guide.pdf',
+                    filters: [{ name: 'PDF Files', extensions: ['pdf'] }]
+                });
+
+                // 3. Write file to disk
+                if (filePath) {
+                    fs.writeFileSync(filePath, data);
+                    // Optional: Alert user success
+                    // alert('PDF Saved Successfully!'); 
+                }
+
+            } catch (error) {
+                console.error("PDF generation failed:", error);
+                alert("Could not generate PDF: " + error.message);
+            } finally {
+                // Reset Button
+                btn.querySelector('i').className = originalIcon;
+                btn.style.opacity = '1';
+            }
         }
     </script>
 
     <!-- Floating PDF Export Button -->
-    <button onclick="exportToPDF()" class="export-pdf-fab" title="Export to PDF">
-        <span class="small-text">Export</span>
-        <span class="main-text">PDF</span>
+    <button onclick="exportToPDF()" class="export-pdf-fab" id="pdfBtn" title="Save as PDF">
+        <i class="fas fa-file-pdf"></i>
+        <div class="text-container">
+            <span class="small-text">Save as</span>
+            <span class="main-text">PDF</span>
+        </div>
     </button>
-</body>thike
+</body>
 
 </html>
