@@ -195,46 +195,6 @@
             background: #3b82f6;
         }
 
-        /* Print Styles */
-        @media print {
-
-            aside,
-            #menuBtn,
-            .export-pdf-fab {
-                display: none !important;
-            }
-
-            main {
-                margin-left: 0 !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                background: white !important;
-                color: black !important;
-            }
-
-            body {
-                background: white !important;
-            }
-
-            .info-card,
-            .use-case-box {
-                background: white !important;
-                border: 1px solid #ddd !important;
-                color: black !important;
-                break-inside: avoid;
-            }
-
-            .text-body,
-            .label,
-            p {
-                color: #333 !important;
-            }
-
-            .bg-gradient-to-r {
-                background: #f8fafc !important;
-                border: 1px solid #ddd !important;
-            }
-        }
 
         /* Float PDF Button Styling */
         /* Enhanced Float PDF Button Styling */
@@ -2039,10 +1999,6 @@
     `;
 
             try {
-                // Ensure these imports are available. If you defined them globally, you can remove these lines.
-                const { BrowserWindow, dialog } = require('@electron/remote');
-                const fs = require('fs');
-
                 const win = BrowserWindow.getFocusedWindow();
 
                 // 3. GENERATE: Create PDF data in memory (Fixes "Blank Preview" issue)
