@@ -195,6 +195,77 @@
             background: #3b82f6;
         }
 
+        /* --- PRINT / PDF EXPORT STYLES --- */
+        @media print {
+
+            /* 1. HIDE UI ELEMENTS */
+            aside,
+            #menuBtn,
+            .export-pdf-fab {
+                display: none !important;
+            }
+
+            /* 2. RESET LAYOUT (Full Width) */
+            main {
+                margin-left: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+            }
+
+            /* 3. FORCE WHITE BACKGROUND & DARK TEXT */
+            body,
+            main,
+            section,
+            .bg-slate-900,
+            .bg-gray-900,
+            .bg-blue-950 {
+                background-color: #ffffff !important;
+                background-image: none !important;
+                color: #000000 !important;
+            }
+
+            /* 4. FIX TEXT VISIBILITY (Override dark mode text colors) */
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            span,
+            div,
+            .text-slate-100,
+            .text-slate-200,
+            .text-slate-300,
+            .text-slate-500,
+            .text-sky-400 {
+                color: #1f2937 !important;
+                /* Dark Gray for readability */
+                text-shadow: none !important;
+            }
+
+            /* 5. STYLE CARDS FOR PRINT (Add borders instead of dark bg) */
+            .info-card,
+            .use-case-box,
+            .bg-gradient-to-r {
+                background: #ffffff !important;
+                border: 1px solid #cbd5e1 !important;
+                /* Light gray border */
+                box-shadow: none !important;
+                page-break-inside: avoid;
+                /* Prevent cutting cards in half */
+                color: #000000 !important;
+            }
+
+            /* 6. KEEP BLOCK COLORS */
+            /* We ensure the blocks themselves keep their colors but text inside is white */
+            .pb-block {
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                /* Force printing background colors */
+                print-color-adjust: exact;
+            }
+        }
 
         /* Float PDF Button Styling */
         /* Enhanced Float PDF Button Styling */
@@ -256,12 +327,13 @@
 
         /* Ensure SVG icon is white and sized correctly */
         /* Ensure the PDF PNG icon is sized correctly */
-.export-pdf-fab img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px; /* Space between image and text */
-    object-fit: contain;
-}
+        .export-pdf-fab img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            /* Space between image and text */
+            object-fit: contain;
+        }
 
         /* Loading Spinner (Optional for later) */
         .fa-spinner {
@@ -1888,27 +1960,27 @@
         // --- 1. LOCAL MODULE LOADING ---
         // Uses the local @electron folder you'll bundle in the ZIP
         const remoteRendererPath = './@electron/remote/dist/src/renderer/remote.js';
-        
+
         // We import 'dialog' here so we can use it later globally
         const { BrowserWindow: RemoteBrowserWindow, app: remoteApp, dialog } = require(remoteRendererPath);
-    
+
         const path = require('path');
         const fs = require('fs');
-    
+
         // --- 2. PATH RESOLUTION ---
         const appPathArg = window.process.argv.find(arg => arg.startsWith('--appPath='));
         const appRoot = appPathArg ? appPathArg.split('=')[1] : '';
-    
+
         // Use the unified updater in your main installation's src folder
         const updaterPath = path.join(appRoot, 'src', 'docUpdater.js');
         const { syncGuideBook, guideCacheDir } = require(updaterPath);
-    
+
         // --- 3. VERSION DISPLAY ---
         function displayCurrentVersion() {
             if (!guideCacheDir) return;
             const versionPath = path.join(guideCacheDir, 'version.json');
             const versionEl = document.getElementById('guide-version');
-    
+
             try {
                 if (fs.existsSync(versionPath)) {
                     const data = JSON.parse(fs.readFileSync(versionPath, 'utf8'));
@@ -1916,7 +1988,7 @@
                 }
             } catch (e) { console.error("Version check failed", e); }
         }
-    
+
         // --- 4. BACKGROUND SYNC LOGIC ---
         (async () => {
             console.log("[Guide-Book] Checking for technical updates...");
@@ -1930,17 +2002,17 @@
                 console.warn("[Guide-Book] Update check failed:", e.message);
             }
         })();
-    
+
         // --- 5. UI INTERACTION ---
         const menuBtn = document.getElementById('menuBtn');
         const sidebar = document.getElementById('sidebar');
         let isManualScrolling = false;
         let scrollTimeout;
-    
+
         menuBtn.addEventListener('click', () => {
             sidebar.classList.toggle('-translate-x-full');
         });
-    
+
         document.querySelectorAll('.sidebar-item').forEach(link => {
             link.addEventListener('click', (e) => {
                 isManualScrolling = true;
@@ -1951,14 +2023,14 @@
                 scrollTimeout = setTimeout(() => { isManualScrolling = false; }, 1000);
             });
         });
-    
+
         // Precise Observer
         const observerOptions = {
             root: null,
             rootMargin: '-10% 0px -85% 0px',
             threshold: 0
         };
-    
+
         const observer = new IntersectionObserver((entries) => {
             if (isManualScrolling) return;
             const visible = entries.filter(e => e.isIntersecting);
@@ -1972,51 +2044,50 @@
                 });
             }
         }, observerOptions);
-    
+
         document.querySelectorAll('section').forEach(section => observer.observe(section));
-    
+
+        // --- 6. EXPORT FUNCTION (FIXED) ---
         // --- 6. EXPORT FUNCTION (FIXED) ---
         async function exportToPDF() {
             const btn = document.getElementById('pdfBtn');
             const originalContent = btn.innerHTML;
-    
+
             // Visual Loading State
             btn.style.opacity = '0.7';
             btn.style.pointerEvents = 'none';
             btn.innerHTML = `
-                <svg class="fa-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" style="width:24px;height:24px;animation:spin 1s linear infinite;">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="white" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <div class="text-container"><span class="main-text">Saving...</span></div>
-            `;
-    
+            <svg class="fa-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" style="width:24px;height:24px;animation:spin 1s linear infinite;">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="white" stroke-width="4"></circle>
+                <path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <div class="text-container"><span class="main-text">Saving...</span></div>
+        `;
+
             try {
-                // FIX: Use the 'RemoteBrowserWindow' we defined at the top of the script
+                // FIX: Use the global variables. DO NOT use require() here.
                 const win = RemoteBrowserWindow.getFocusedWindow();
-    
+
                 const data = await win.webContents.printToPDF({
-                    printBackground: true,
+                    printBackground: true, // Must be true for CSS to apply correctly
                     pageSize: 'A4',
-                    margins: { top: 0, bottom: 0, left: 0, right: 0 }
+                    margins: { top: 1, bottom: 1, left: 1, right: 1 } // Small margin for white paper look
                 });
-    
-                // FIX: Use the 'dialog' we defined at the top of the script
+
                 const { filePath } = await dialog.showSaveDialog({
                     title: 'Save Manual',
                     defaultPath: 'PlutoBlocks-V4-Guide.pdf',
                     filters: [{ name: 'PDF Files', extensions: ['pdf'] }]
                 });
-    
+
                 if (filePath) {
                     fs.writeFileSync(filePath, data);
                 }
-    
+
             } catch (error) {
                 console.error("PDF generation failed:", error);
                 alert("Could not generate PDF: " + error.message);
             } finally {
-                // Restore button
                 btn.innerHTML = originalContent;
                 btn.style.opacity = '1';
                 btn.style.pointerEvents = 'auto';
