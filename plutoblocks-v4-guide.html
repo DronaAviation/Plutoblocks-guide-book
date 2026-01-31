@@ -293,6 +293,14 @@
             font-weight: 700;
         }
 
+        /* Ensure SVG icon is white and sized correctly */
+        .export-pdf-fab svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            flex-shrink: 0;
+        }
+
         /* Loading Spinner (Optional for later) */
         .fa-spinner {
             animation: spin 1s linear infinite;
@@ -2013,51 +2021,65 @@
         // --- 2. NEW EXPORT FUNCTION ---
         async function exportToPDF() {
             const btn = document.getElementById('pdfBtn');
-            const originalIcon = btn.querySelector('i').className;
 
-            // Visual Feedback: Change icon to spinner
-            btn.querySelector('i').className = 'fas fa-spinner';
+            // 1. SAVE: Store the original button look (icon + text)
+            const originalContent = btn.innerHTML;
+
+            // 2. LOADING STATE: Replace content with a spinning SVG
             btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none'; // Prevent double-clicking
+            btn.innerHTML = `
+        <svg class="fa-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" style="width:24px;height:24px;animation:spin 1s linear infinite;">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <div class="text-container"><span class="main-text">Saving...</span></div>
+    `;
 
             try {
-                const win = RemoteBrowserWindow.getFocusedWindow();
+                // Ensure these imports are available. If you defined them globally, you can remove these lines.
+                const { BrowserWindow, dialog } = require('@electron/remote');
+                const fs = require('fs');
 
-                // 1. Generate PDF Data (Background)
-                // This renders the PDF in memory without opening a print dialog
+                const win = BrowserWindow.getFocusedWindow();
+
+                // 3. GENERATE: Create PDF data in memory (Fixes "Blank Preview" issue)
                 const data = await win.webContents.printToPDF({
                     printBackground: true,
                     pageSize: 'A4',
-                    margins: { top: 0, bottom: 0, left: 0, right: 0 } // CSS handles margins
+                    margins: { top: 0, bottom: 0, left: 0, right: 0 }
                 });
 
-                // 2. Open "Save As" Dialog
+                // 4. SAVE: Open the system "Save As" dialog
                 const { filePath } = await dialog.showSaveDialog({
                     title: 'Save Manual',
                     defaultPath: 'PlutoBlocks-V4-Guide.pdf',
                     filters: [{ name: 'PDF Files', extensions: ['pdf'] }]
                 });
 
-                // 3. Write file to disk
+                // 5. WRITE: Save the file to disk
                 if (filePath) {
                     fs.writeFileSync(filePath, data);
-                    // Optional: Alert user success
-                    // alert('PDF Saved Successfully!'); 
                 }
 
             } catch (error) {
                 console.error("PDF generation failed:", error);
                 alert("Could not generate PDF: " + error.message);
             } finally {
-                // Reset Button
-                btn.querySelector('i').className = originalIcon;
+                // 6. RESTORE: Put the original icon and text back
+                btn.innerHTML = originalContent;
                 btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
             }
         }
     </script>
 
     <!-- Floating PDF Export Button -->
     <button onclick="exportToPDF()" class="export-pdf-fab" id="pdfBtn" title="Save as PDF">
-        <i class="fas fa-file-pdf"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor">
+            <path
+                d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 2.4 36.3 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24c0-13.3 10.7-24 24-24h184v160zm-33.6 13.6c-7.2 21.5-15.3 43.9-24.5 64.5 8.1 12.9 16.3 27.6 24.3 42 34 6.6 66.5 13.2 92.4 16.5 12.4 1.5 25.1-4.8 24.8-17.3-.1-10.3-11.4-13.7-21.4-15.1-65.5-9.6-102.6-18.7-104.9-19.3-18.5-38-34-60.7-34-60.7 0-23.7 19.3-52.6 39.5-52.6 14.5 0 17 12 17 21 0 18.2-13.5 16.5-13.2 21zm-75.7 141.6c-9-19.1-17.7-41-25.5-64.8-18.9 51.5-54.1 79.5-65.4 79.5-8.2 0-11-8.1-11-14.9 0-15.1 16.5-29.7 54.7-49.3 28.5 22.6 47.2 49.5 47.2 49.5zm76.5 73.6c-4.9-7-14.7-14.2-27.5-18.2-30.8 4.4-71 11.2-108.6 20.2 9.8 17.1 26 27 34.9 27 9.4 0 22.8-5.3 54.5-12.8 30.6-7.3 46.7-16.2 46.7-16.2z" />
+        </svg>
         <div class="text-container">
             <span class="small-text">Save as</span>
             <span class="main-text">PDF</span>
