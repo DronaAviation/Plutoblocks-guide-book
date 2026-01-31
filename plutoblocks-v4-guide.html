@@ -108,6 +108,10 @@
             background-color: #825BA5;
         }
 
+        .block-core {
+            background-color: #825BA5;
+        }
+
         .block-desired {
             background-color: #A55B80;
         }
@@ -190,6 +194,86 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #3b82f6;
         }
+
+        /* Print Styles */
+        @media print {
+
+            aside,
+            #menuBtn,
+            .export-pdf-fab {
+                display: none !important;
+            }
+
+            main {
+                margin-left: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                background: white !important;
+                color: black !important;
+            }
+
+            body {
+                background: white !important;
+            }
+
+            .info-card,
+            .use-case-box {
+                background: white !important;
+                border: 1px solid #ddd !important;
+                color: black !important;
+                break-inside: avoid;
+            }
+
+            .text-body,
+            .label,
+            p {
+                color: #333 !important;
+            }
+
+            .bg-gradient-to-r {
+                background: #f8fafc !important;
+                border: 1px solid #ddd !important;
+            }
+        }
+
+        /* Float PDF Button Styling */
+        .export-pdf-fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 1rem;
+            background: #0ea5e9;
+            color: white;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            line-height: 1.1;
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .export-pdf-fab:hover {
+            background: #0284c7;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(14, 165, 233, 0.5);
+        }
+
+        .export-pdf-fab .small-text {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+            letter-spacing: 0.05em;
+        }
+
+        .export-pdf-fab .main-text {
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
     </style>
 </head>
 
@@ -201,36 +285,36 @@
             class="fixed top-0 left-0 h-screen w-72 bg-slate-900 border-r border-slate-700 z-50 overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
             <div class="p-8">
                 <div class="flex items-center gap-3 mb-10">
-                    <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                        <i class="fas fa-cube text-white"></i>
-                    </div>
+                    <img src="gbassets/1.png" alt="PlutoBlocks Logo" class="h-10 w-auto">
                     <div class="leading-tight">
                         <h1 class="text-lg font-extrabold tracking-tight text-slate-100">Pluto<span
-                                class="text-sky-400">Blocks</span></h1>
+                                class="text-sky-400"> Blocks</span></h1>
                         <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Master Guide V4</p>
                     </div>
                 </div>
 
                 <nav class="space-y-1">
                     <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4 px-4">Categories</p>
-                    <a href="#LED" class="sidebar-item block px-4 py-2 rounded-lg text-sm">1. LED</a>
-                    <a href="#Function" class="sidebar-item block px-4 py-2 rounded-lg text-sm">2. Create Function</a>
-                    <a href="#Timer" class="sidebar-item block px-4 py-2 rounded-lg text-sm">3. Timer</a>
-                    <a href="#Peripheral" class="sidebar-item block px-4 py-2 rounded-lg text-sm">4. Peripheral</a>
-                    <a href="#Command" class="sidebar-item block px-4 py-2 rounded-lg text-sm">5. Command</a>
-                    <a href="#Motor" class="sidebar-item block px-4 py-2 rounded-lg text-sm">6. Motor</a>
-                    <a href="#Remote" class="sidebar-item block px-4 py-2 rounded-lg text-sm">7. Remote Control</a>
-                    <a href="#Sensor" class="sidebar-item block px-4 py-2 rounded-lg text-sm">8. Sensor</a>
-                    <a href="#State" class="sidebar-item block px-4 py-2 rounded-lg text-sm">9. Current State</a>
-                    <a href="#Desired" class="sidebar-item block px-4 py-2 rounded-lg text-sm">10. Desired State</a>
-                    <a href="#Mode" class="sidebar-item block px-4 py-2 rounded-lg text-sm">11. Flight Mode</a>
-                    <a href="#Status" class="sidebar-item block px-4 py-2 rounded-lg text-sm">12. Flight Status</a>
-                    <a href="#Console" class="sidebar-item block px-4 py-2 rounded-lg text-sm">13. Console</a>
-                    <a href="#Logic" class="sidebar-item block px-4 py-2 rounded-lg text-sm">14. Logic</a>
-                    <a href="#Loops" class="sidebar-item block px-4 py-2 rounded-lg text-sm">15. Loops</a>
-                    <a href="#Math" class="sidebar-item block px-4 py-2 rounded-lg text-sm">16. Math</a>
-                    <a href="#Variables" class="sidebar-item block px-4 py-2 rounded-lg text-sm">17. Variables</a>
+                    <a href="#Core" class="sidebar-item block px-4 py-2 rounded-lg text-sm">1. Core Blocks</a>
+                    <a href="#LED" class="sidebar-item block px-4 py-2 rounded-lg text-sm">2. LED</a>
+                    <a href="#Function" class="sidebar-item block px-4 py-2 rounded-lg text-sm">3. Create Function</a>
+                    <a href="#Timer" class="sidebar-item block px-4 py-2 rounded-lg text-sm">4. Timer</a>
+                    <a href="#Peripheral" class="sidebar-item block px-4 py-2 rounded-lg text-sm">5. Peripheral</a>
+                    <a href="#Command" class="sidebar-item block px-4 py-2 rounded-lg text-sm">6. Command</a>
+                    <a href="#Motor" class="sidebar-item block px-4 py-2 rounded-lg text-sm">7. Motor</a>
+                    <a href="#Remote" class="sidebar-item block px-4 py-2 rounded-lg text-sm">8. Remote Control</a>
+                    <a href="#Sensor" class="sidebar-item block px-4 py-2 rounded-lg text-sm">9. Sensor</a>
+                    <a href="#State" class="sidebar-item block px-4 py-2 rounded-lg text-sm">10. Current State</a>
+                    <a href="#Desired" class="sidebar-item block px-4 py-2 rounded-lg text-sm">11. Desired State</a>
+                    <a href="#Mode" class="sidebar-item block px-4 py-2 rounded-lg text-sm">12. Flight Mode</a>
+                    <a href="#Status" class="sidebar-item block px-4 py-2 rounded-lg text-sm">13. Flight Status</a>
+                    <a href="#Console" class="sidebar-item block px-4 py-2 rounded-lg text-sm">14. Console</a>
+                    <a href="#Logic" class="sidebar-item block px-4 py-2 rounded-lg text-sm">15. Logic</a>
+                    <a href="#Loops" class="sidebar-item block px-4 py-2 rounded-lg text-sm">16. Loops</a>
+                    <a href="#Math" class="sidebar-item block px-4 py-2 rounded-lg text-sm">17. Math</a>
+                    <a href="#Variables" class="sidebar-item block px-4 py-2 rounded-lg text-sm">18. Variables</a>
                 </nav>
+
             </div>
         </aside>
 
@@ -244,9 +328,98 @@
 
             <div class="max-w-6xl mx-auto px-6 lg:px-12 py-16 space-y-32">
 
-                <!-- 1. LED Control -->
+
+                <!-- 1. Core Blocks -->
+                <section id="Core">
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">1. Core Blocks</h2>
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+
+                        <p class="text-slate-200 leading-relaxed mb-4">
+                            <span class="font-bold text-slate-100">The foundation of every PlutoBlocks program</span>.
+                            Core Blocks define the structure of your program.
+                        </p>
+
+                        <p class="text-slate-200 leading-relaxed">
+                            PlutoBlocks project runs alongside the drone’s existing firmware and is available when
+                            Developer
+                            Mode is enabled.
+                            It allows you to add custom logic for automation, control behavior, and sensor-based
+                            actions.
+                            Each project begins by selecting a receiver mode, followed by blocks that handle
+                            initialization,
+                            continuous execution, and safe shutdown.
+                        </p>
+                    </div>
+
+
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="info-card">
+                            <h3 class="font-bold">Select Receiver Mode</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/32.png" alt="Select Receiver Mode Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Configures the drone to use either WiFi (Rx_ESP) or External RC
+                                    (Rx_PPM) receivers.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Setup</span>
+                                <p class="text-body">Choose Rx_ESP for smartphone control or Rx_PPM for Flysky/standard
+                                    remote controllers.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="font-bold">on start</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/33.png" alt="on start Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Initializes parameters and runs code once when the drone is powered
+                                    on.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Usage</span>
+                                <p class="text-body">Set initial variable values, calibrate sensors, or establish
+                                    baseline parameters before flight.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="font-bold">pluto loop</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/34.png" alt="pluto loop Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">The primary execution loop that runs continuously with a defined
+                                    interval.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Usage</span>
+                                <p class="text-body">Place your main flight logic here. Default interval is 100ms for
+                                    stable performance.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h3 class="font-bold">on stop</h3>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/35.png" alt="on stop Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Executes cleanup and safety routines when the program is
+                                    terminated.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Usage</span>
+                                <p class="text-body">Ensure motors are disarmed, LEDs are reset, or data logs are closed
+                                    safely.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. LED Control -->
                 <section id="LED">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">1. LED Control</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">2. LED Control</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -280,8 +453,9 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="info-card">
                             <h3 class="font-bold">Red LED</h3>
-                            <img src="gbassets/36.png" alt="Red LED Block"
-                                class="w-full h-24 object-contain rounded-lg mb-2">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/36.png" alt="Red LED Block" class="w-auto h-auto max-w-full">
+                            </div>
 
                             <div><span class="label">Function</span>
                                 <p class="text-body">Sets the state (ON/OFF/Blink) of the Red LED.</p>
@@ -293,8 +467,9 @@
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Green LED</h3>
-                            <img src="gbassets/37.png" alt="Green LED Block"
-                                class="w-full h-24 object-contain rounded-lg mb-2">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/37.png" alt="Green LED Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Sets the state of the Green LED.</p>
                             </div>
@@ -305,8 +480,9 @@
                         </div>
                         <div class="info-card">
                             <h3 class="font-bold">Blue LED</h3>
-                            <img src="gbassets/38.png" alt="Blue LED Block"
-                                class="w-full h-24 object-contain rounded-lg mb-2">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/38.png" alt="Blue LED Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Sets the state of the Blue LED.</p>
                             </div>
@@ -319,9 +495,9 @@
                     </div>
                 </section>
 
-                <!-- 2. Create Function -->
+                <!-- 3. Create Function -->
                 <section id="Function">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">2. Create Function</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">3. Create Function</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -385,9 +561,9 @@
                     </div>
                 </section>
 
-                <!-- 3. Timer -->
+                <!-- 4. Timer -->
                 <section id="Timer">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">3. Timer</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">4. Timer</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -444,9 +620,9 @@
                     </div>
                 </section>
 
-                <!-- 4. Peripheral -->
+                <!-- 5. Peripheral -->
                 <section id="Peripheral">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">4. Peripheral Control</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">5. Peripheral Control</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -536,9 +712,9 @@
                     </div>
                 </section>
 
-                <!-- 5. Command -->
+                <!-- 6. Command -->
                 <section id="Command">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">5. Flight Command</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">6. Flight Command</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -612,9 +788,9 @@
                     </div>
                 </section>
 
-                <!-- 6. Motor -->
+                <!-- 7. Motor -->
                 <section id="Motor">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">6. Motor Drive</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">7. Motor Drive</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -710,9 +886,9 @@
                     </div>
                 </section>
 
-                <!-- 7. Remote Control -->
+                <!-- 8. Remote Control -->
                 <section id="Remote">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">7. Remote Control</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">8. Remote Control</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -835,9 +1011,9 @@
                     </div>
                 </section>
 
-                <!-- 8. Sensor -->
+                <!-- 9. Sensor -->
                 <section id="Sensor">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">8. Sensor Data</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">9. Sensor Data</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -926,9 +1102,9 @@
                     </div>
                 </section>
 
-                <!-- 9. Current State -->
+                <!-- 10. Current State -->
                 <section id="State">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">9. Current State</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">10. Current State</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -1013,9 +1189,9 @@
                     </div>
                 </section>
 
-                <!-- 10. Desired State -->
+                <!-- 11. Desired State -->
                 <section id="Desired">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">10. Desired State</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">11. Desired State</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -1072,9 +1248,9 @@
                     </div>
                 </section>
 
-                <!-- 11. Flight Mode -->
+                <!-- 12. Flight Mode -->
                 <section id="Mode">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">11. Flight Mode</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">12. Flight Mode</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -1119,9 +1295,9 @@
                     </div>
                 </section>
 
-                <!-- 12. Flight Status -->
+                <!-- 13. Flight Status -->
                 <section id="Status">
-                    <h2 class="text-3xl font-black text-sky-400 mb-10">12. Flight Status</h2>
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">13. Flight Status</h2>
 
                     <div
                         class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
@@ -1140,7 +1316,8 @@
                             <h4 class="font-bold">Is Armed?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/flight_status_1.png" alt="Is Armed Block"
-                                    class="w-auto h-auto max-w-full"></div>
+                                    class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Returns True if motors are unlocked.</p>
                             </div>
@@ -1153,7 +1330,8 @@
                             <h4 class="font-bold">Crashed?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/flight_status_2.png" alt="Crashed Block"
-                                    class="w-auto h-auto max-w-full"></div>
+                                    class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Returns True on heavy impact.</p>
                             </div>
@@ -1166,7 +1344,8 @@
                             <h4 class="font-bold">Is Auto Stable?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/flight_status_3.png" alt="Is Auto Stable Block"
-                                    class="w-auto h-auto max-w-full"></div>
+                                    class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Checks if auto-stability is active.</p>
                             </div>
@@ -1178,7 +1357,8 @@
                             <h4 class="font-bold">Is Alt Hold?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/flight_status_4.png" alt="Is Alt Hold Block"
-                                    class="w-auto h-auto max-w-full"></div>
+                                    class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Checks if altitude hold is engaged.</p>
                             </div>
@@ -1190,7 +1370,8 @@
                             <h4 class="font-bold">Is Dev Mode?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/flight_status_5.png" alt="Is Dev Mode Block"
-                                    class="w-auto h-auto max-w-full"></div>
+                                    class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Checks if developer mode is active.</p>
                             </div>
@@ -1203,7 +1384,8 @@
                             <h4 class="font-bold">Is Mag Hold?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/flight_status_6.png" alt="Is Mag Hold Block"
-                                    class="w-auto h-auto max-w-full"></div>
+                                    class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Checks if magnetometer hold is active.</p>
                             </div>
@@ -1225,457 +1407,477 @@
                     </div>
                 </section>
 
-    <!-- 13. Console -->
-    <section id="Console">
-        <h2 class="text-3xl font-black text-sky-400 mb-10">13. Console</h2>
+                <!-- 14. Console -->
+                <section id="Console">
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">14. Console</h2>
 
-        <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
-            <p class="text-slate-200 leading-relaxed mb-4">
-                <span class="font-bold text-slate-100">Debug and monitor your programs</span> by sending
-                messages and sensor values to the Pluto Monitor application in real-time.
-            </p>
-            <p class="text-slate-200 leading-relaxed">
-                Track program flow, display live sensor data, and verify that your automation logic is
-                executing correctly during flight tests.
-            </p>
-        </div>
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+                        <p class="text-slate-200 leading-relaxed mb-4">
+                            <span class="font-bold text-slate-100">Debug and monitor your programs</span> by sending
+                            messages and sensor values to the Pluto Monitor application in real-time.
+                        </p>
+                        <p class="text-slate-200 leading-relaxed">
+                            Track program flow, display live sensor data, and verify that your automation logic is
+                            executing correctly during flight tests.
+                        </p>
+                    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="info-card">
-                <h4 class="font-bold">Print Message</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="info-card">
+                            <h4 class="font-bold">Print Message</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/console_1.png" alt="Print Message Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Sends text to the Pluto Monitor app.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Real-time mission debugging, autonomous logic verification, or
-                        flight event logging for post-mission analysis.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Print Text + Value</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Sends text to the Pluto Monitor app.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Real-time mission debugging, autonomous logic verification, or
+                                    flight event logging for post-mission analysis.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Print Text + Value</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/console_2.png" alt="Print Text + Value Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Shows a label with a live sensor number.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Live sensor telemetry monitoring, variable state tracking during
-                        flight, or sensor data logging for performance optimization.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Shows a label with a live sensor number.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Live sensor telemetry monitoring, variable state tracking during
+                                    flight, or sensor data logging for performance optimization.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    <!-- 14. Logic -->
-    <section id="Logic">
-        <h2 class="text-3xl font-black text-sky-400 mb-10">14. Logic</h2>
+                <!-- 15. Logic -->
+                <section id="Logic">
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">15. Logic</h2>
 
-        <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
-            <p class="text-slate-200 leading-relaxed mb-4">
-                <span class="font-bold text-slate-100">Create conditional decision-making</span> in your
-                programs using if-then statements and logical operators.
-            </p>
-            <p class="text-slate-200 leading-relaxed">
-                Build intelligent automation by combining multiple conditions with AND, OR, and NOT
-                operators to control complex flight behaviors.
-            </p>
-        </div>
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+                        <p class="text-slate-200 leading-relaxed mb-4">
+                            <span class="font-bold text-slate-100">Create conditional decision-making</span> in your
+                            programs using if-then statements and logical operators.
+                        </p>
+                        <p class="text-slate-200 leading-relaxed">
+                            Build intelligent automation by combining multiple conditions with AND, OR, and NOT
+                            operators to control complex flight behaviors.
+                        </p>
+                    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="info-card">
-                <h4 class="font-bold">If This, Then That</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/logic_1.png" alt="If This, Then That Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Decision making block based on conditions.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Conditional flight path planning, sensor-based autonomous decision
-                        making, or altitude-dependent thrust adjustments.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Both True? (AND)</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/logic_2.png" alt="Both True? (AND) Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Combines two conditions.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Complex multi-factor decision logic, failsafe condition
-                        combinations, or cooperative sensor-based automation triggers.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Compare</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/logic_3.png" alt="Compare Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Compares two values.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Sensor value thresholding, state comparison, or event-triggering
-                        based on value equality.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Not</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/logic_4.png" alt="Not Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Inverts a condition.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">State inversion, condition negation, or toggling between two states.
-                    </p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Boolean</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/logic_5.png" alt="Boolean Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Represents a true or false value.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Flagging events, tracking states, or representing binary conditions.
-                    </p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Null</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/logic_6.png" alt="Null Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Represents an empty or null value.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Initializing variables, representing empty values, or checking for
-                        the absence of a value.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Ternary</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/logic_7.png" alt="Ternary Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">A compact if-then-else block.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Conditional value assignment, state-based value selection, or
-                        compact conditional logic.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="info-card">
+                            <h4 class="font-bold">If This, Then That</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/logic_1.png" alt="If This, Then That Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Decision making block based on conditions.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Conditional flight path planning, sensor-based autonomous decision
+                                    making, or altitude-dependent thrust adjustments.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Both True? (AND)</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/logic_2.png" alt="Both True? (AND) Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Combines two conditions.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Complex multi-factor decision logic, failsafe condition
+                                    combinations, or cooperative sensor-based automation triggers.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Compare</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/logic_3.png" alt="Compare Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Compares two values.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Sensor value thresholding, state comparison, or event-triggering
+                                    based on value equality.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Not</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/logic_4.png" alt="Not Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Inverts a condition.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">State inversion, condition negation, or toggling between two
+                                    states.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Boolean</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/logic_5.png" alt="Boolean Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Represents a true or false value.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Flagging events, tracking states, or representing binary
+                                    conditions.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Null</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/logic_6.png" alt="Null Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Represents an empty or null value.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Initializing variables, representing empty values, or checking for
+                                    the absence of a value.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Ternary</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/logic_7.png" alt="Ternary Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">A compact if-then-else block.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Conditional value assignment, state-based value selection, or
+                                    compact conditional logic.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    <!-- 15. Loops -->
-    <section id="Loops">
-        <h2 class="text-3xl font-black text-sky-400 mb-10">15. Loops</h2>
+                <!-- 16. Loops -->
+                <section id="Loops">
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">16. Loops</h2>
 
-        <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
-            <p class="text-slate-200 leading-relaxed mb-4">
-                <span class="font-bold text-slate-100">Repeat code blocks</span> using for loops and while
-                loops to execute sequences multiple times without duplication.
-            </p>
-            <p class="text-slate-200 leading-relaxed">
-                Build repetitive flight patterns, pattern-based LED indicators, or condition-dependent
-                flight sequences that run until specific criteria are met.
-            </p>
-        </div>
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+                        <p class="text-slate-200 leading-relaxed mb-4">
+                            <span class="font-bold text-slate-100">Repeat code blocks</span> using for loops and while
+                            loops to execute sequences multiple times without duplication.
+                        </p>
+                        <p class="text-slate-200 leading-relaxed">
+                            Build repetitive flight patterns, pattern-based LED indicators, or condition-dependent
+                            flight sequences that run until specific criteria are met.
+                        </p>
+                    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="info-card">
-                <h4 class="font-bold">For Loop (Counter)</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/loops_1.png" alt="For Loop (Counter) Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Repeats an action for a specific count.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Repetitive status indication patterns, sequential motor testing
-                        routines, or counted autonomous flight sequences.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Repeat While</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/loops_2.png" alt="Repeat While Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Repeats code as long as a condition is met.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Persistent condition monitoring, altitude-dependent motor control,
-                        or sensor-driven continuous operation loops.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Repeat</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/loops_3.png" alt="Repeat Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Repeats an action for a specific number of times.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Repetitive status indication patterns, sequential motor testing
-                        routines, or counted autonomous flight sequences.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Break/Continue</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/loops_4.png" alt="Break/Continue Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Exits or skips an iteration of a loop.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Emergency loop termination, skipping an iteration based on a
-                        condition, or creating complex loop control flow.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="info-card">
+                            <h4 class="font-bold">For Loop (Counter)</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/loops_1.png" alt="For Loop (Counter) Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Repeats an action for a specific count.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Repetitive status indication patterns, sequential motor testing
+                                    routines, or counted autonomous flight sequences.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Repeat While</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/loops_2.png" alt="Repeat While Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Repeats code as long as a condition is met.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Persistent condition monitoring, altitude-dependent motor control,
+                                    or sensor-driven continuous operation loops.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Repeat</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/loops_3.png" alt="Repeat Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Repeats an action for a specific number of times.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Repetitive status indication patterns, sequential motor testing
+                                    routines, or counted autonomous flight sequences.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Break/Continue</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/loops_4.png" alt="Break/Continue Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Exits or skips an iteration of a loop.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Emergency loop termination, skipping an iteration based on a
+                                    condition, or creating complex loop control flow.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    <!-- 16. Math -->
-    <section id="Math">
-        <h2 class="text-3xl font-black text-sky-400 mb-10">16. Math</h2>
+                <!-- 17. Math -->
+                <section id="Math">
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">17. Math</h2>
 
-        <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
-            <p class="text-slate-200 leading-relaxed mb-4">
-                <span class="font-bold text-slate-100">Perform mathematical operations</span> including
-                clamping, rounding, random values, and other calculations.
-            </p>
-            <p class="text-slate-200 leading-relaxed">
-                Process sensor data, constrain control values to safe ranges, generate random patterns, or
-                compute complex flight algorithms.
-            </p>
-        </div>
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+                        <p class="text-slate-200 leading-relaxed mb-4">
+                            <span class="font-bold text-slate-100">Perform mathematical operations</span> including
+                            clamping, rounding, random values, and other calculations.
+                        </p>
+                        <p class="text-slate-200 leading-relaxed">
+                            Process sensor data, constrain control values to safe ranges, generate random patterns, or
+                            compute complex flight algorithms.
+                        </p>
+                    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="info-card">
-                <h4 class="font-bold">Arithmetic</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_1.png" alt="Arithmetic Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Performs basic arithmetic operations.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Sensor data processing, control value calculation, or any other
-                        mathematical calculation.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Single</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_2.png" alt="Single Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Performs a single mathematical operation.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Sensor data processing, control value calculation, or any other
-                        mathematical calculation.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Trigonometry</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_3.png" alt="Trigonometry Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Performs trigonometric operations.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Sensor data processing, control value calculation, or any other
-                        mathematical calculation.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Number Property</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_4.png" alt="Number Property Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Checks if a number is even, odd, prime, whole, positive,
-                        negative, or divisible by a certain number.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Sensor data processing, control value calculation, or any other
-                        mathematical calculation.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Round</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_5.png" alt="Round Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Rounds a number to the nearest integer.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Sensor data processing, control value calculation, or any other
-                        mathematical calculation.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Change</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_6.png" alt="Change Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Adds a number to a variable.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Sensor data processing, control value calculation, or any other
-                        mathematical calculation.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Clamp (Limit)</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_7.png" alt="Clamp (Limit) Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Keeps a number inside a range.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Motor control safety bounds enforcement, sensor value
-                        normalization, or command output range validation.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Random Integer</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_8.png" alt="Random Integer Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Picks a whole number randomly.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Randomized flight patterns for coverage missions, stochastic
-                        behavior simulation, or non-deterministic autonomous routines.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Random Float</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_9.png" alt="Random Float Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Picks a random number between 0 and 1.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Randomized flight patterns for coverage missions, stochastic
-                        behavior simulation, or non-deterministic autonomous routines.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Atan2</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_10.png" alt="Atan2 Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Returns the angle in degrees from the x-axis to a point (y, x).
-                    </p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Sensor data processing, control value calculation, or any other
-                        mathematical calculation.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Modulo</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/math_11.png" alt="Modulo Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Returns the remainder of a division.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Sensor data processing, control value calculation, or any other
-                        mathematical calculation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="info-card">
+                            <h4 class="font-bold">Arithmetic</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_1.png" alt="Arithmetic Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Performs basic arithmetic operations.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Sensor data processing, control value calculation, or any other
+                                    mathematical calculation.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Single</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_2.png" alt="Single Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Performs a single mathematical operation.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Sensor data processing, control value calculation, or any other
+                                    mathematical calculation.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Trigonometry</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_3.png" alt="Trigonometry Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Performs trigonometric operations.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Sensor data processing, control value calculation, or any other
+                                    mathematical calculation.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Number Property</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_4.png" alt="Number Property Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if a number is even, odd, prime, whole, positive,
+                                    negative, or divisible by a certain number.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Sensor data processing, control value calculation, or any other
+                                    mathematical calculation.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Round</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_5.png" alt="Round Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Rounds a number to the nearest integer.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Sensor data processing, control value calculation, or any other
+                                    mathematical calculation.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Change</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_6.png" alt="Change Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Adds a number to a variable.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Sensor data processing, control value calculation, or any other
+                                    mathematical calculation.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Clamp (Limit)</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_7.png" alt="Clamp (Limit) Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Keeps a number inside a range.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Motor control safety bounds enforcement, sensor value
+                                    normalization, or command output range validation.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Random Integer</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_8.png" alt="Random Integer Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Picks a whole number randomly.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Randomized flight patterns for coverage missions, stochastic
+                                    behavior simulation, or non-deterministic autonomous routines.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Random Float</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_9.png" alt="Random Float Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Picks a random number between 0 and 1.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Randomized flight patterns for coverage missions, stochastic
+                                    behavior simulation, or non-deterministic autonomous routines.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Atan2</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_10.png" alt="Atan2 Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Returns the angle in degrees from the x-axis to a point (y, x).
+                                </p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Sensor data processing, control value calculation, or any other
+                                    mathematical calculation.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Modulo</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/math_11.png" alt="Modulo Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Returns the remainder of a division.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Sensor data processing, control value calculation, or any other
+                                    mathematical calculation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    <!-- 17. Variables -->
-    <section id="Variables">
-        <h2 class="text-3xl font-black text-sky-400 mb-10">17. Variables</h2>
+                <!-- 18. Variables -->
+                <section id="Variables">
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">18. Variables</h2>
 
-        <div class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
-            <p class="text-slate-200 leading-relaxed mb-4">
-                <span class="font-bold text-slate-100">Store and manage data</span> using variables to track
-                values throughout your program's execution.
-            </p>
-            <p class="text-slate-200 leading-relaxed">
-                Create counters, store sensor readings, track state information, and build dynamic flight
-                logic that adapts based on stored data values.
-            </p>
-        </div>
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+                        <p class="text-slate-200 leading-relaxed mb-4">
+                            <span class="font-bold text-slate-100">Store and manage data</span> using variables to track
+                            values throughout your program's execution.
+                        </p>
+                        <p class="text-slate-200 leading-relaxed">
+                            Create counters, store sensor readings, track state information, and build dynamic flight
+                            logic that adapts based on stored data values.
+                        </p>
+                    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="info-card">
-                <h4 class="font-bold">Store Data</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/variables_1.png" alt="Store Data Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Creates a temporary memory to hold a number.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Flight reference point tracking, mission state persistence, or
-                        historical data logging for performance analysis and recovery sequences.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Get Data</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/variables_2.png" alt="Get Data Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Retrieves a value from a variable.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Flight reference point tracking, mission state persistence, or
-                        historical data logging for performance analysis and recovery sequences.</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <h4 class="font-bold">Change Data</h4>
-                <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                    <img src="gbassets/variables_3.png" alt="Change Data Block" class="w-auto h-auto max-w-full">
-                </div>
-                <div><span class="label">Function</span>
-                    <p class="text-body">Changes the value of a variable by a certain amount.</p>
-                </div>
-                <div class="use-case-box"><span class="label">Project Ideas</span>
-                    <p class="text-body">Flight reference point tracking, mission state persistence, or
-                        historical data logging for performance analysis and recovery sequences.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="info-card">
+                            <h4 class="font-bold">Store Data</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/variables_1.png" alt="Store Data Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Creates a temporary memory to hold a number.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Flight reference point tracking, mission state persistence, or
+                                    historical data logging for performance analysis and recovery sequences.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Get Data</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/variables_2.png" alt="Get Data Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Retrieves a value from a variable.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Flight reference point tracking, mission state persistence, or
+                                    historical data logging for performance analysis and recovery sequences.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Change Data</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/variables_3.png" alt="Change Data Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Changes the value of a variable by a certain amount.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Flight reference point tracking, mission state persistence, or
+                                    historical data logging for performance analysis and recovery sequences.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-    </div>
+            </div>
 
             <footer class="bg-slate-900 border-t border-slate-700 py-12 px-6 lg:px-12 text-center">
                 <p class="text-xs text-slate-500">&copy; 2026 Drona Aviation.</p>
@@ -1685,49 +1887,49 @@
 
     <script>
         // --- 1. LOCAL MODULE LOADING ---
-  // Uses the local @electron folder you'll bundle in the ZIP
-  const remoteRendererPath = './@electron/remote/dist/src/renderer/remote.js';
-  const { BrowserWindow: RemoteBrowserWindow, app: remoteApp } = require(remoteRendererPath);
+        // Uses the local @electron folder you'll bundle in the ZIP
+        const remoteRendererPath = './@electron/remote/dist/src/renderer/remote.js';
+        const { BrowserWindow: RemoteBrowserWindow, app: remoteApp } = require(remoteRendererPath);
 
-  const path = require('path');
-  const fs = require('fs');
+        const path = require('path');
+        const fs = require('fs');
 
-  // --- 2. PATH RESOLUTION ---
-  const appPathArg = window.process.argv.find(arg => arg.startsWith('--appPath='));
-  const appRoot = appPathArg ? appPathArg.split('=')[1] : '';
+        // --- 2. PATH RESOLUTION ---
+        const appPathArg = window.process.argv.find(arg => arg.startsWith('--appPath='));
+        const appRoot = appPathArg ? appPathArg.split('=')[1] : '';
 
-  // Use the unified updater in your main installation's src folder
-  const updaterPath = path.join(appRoot, 'src', 'docUpdater.js'); 
-  const { syncGuideBook, guideCacheDir } = require(updaterPath);
+        // Use the unified updater in your main installation's src folder
+        const updaterPath = path.join(appRoot, 'src', 'docUpdater.js');
+        const { syncGuideBook, guideCacheDir } = require(updaterPath);
 
-  // --- 3. VERSION DISPLAY ---
-  function displayCurrentVersion() {
-    if (!guideCacheDir) return;
-    const versionPath = path.join(guideCacheDir, 'version.json');
-    // Note: You might want to add <div id="guide-version"></div> to your header
-    const versionEl = document.getElementById('guide-version'); 
-    
-    try {
-      if (fs.existsSync(versionPath)) {
-        const data = JSON.parse(fs.readFileSync(versionPath, 'utf8'));
-        if (versionEl) versionEl.textContent = `V4 MANUAL: ${data.tag}`;
-      }
-    } catch (e) { console.error("Version check failed", e); }
-  }
+        // --- 3. VERSION DISPLAY ---
+        function displayCurrentVersion() {
+            if (!guideCacheDir) return;
+            const versionPath = path.join(guideCacheDir, 'version.json');
+            // Note: You might want to add <div id="guide-version"></div> to your header
+            const versionEl = document.getElementById('guide-version');
 
-  // --- 4. BACKGROUND SYNC LOGIC ---
-  (async () => {
-    console.log("[Guide-Book] Checking for technical updates...");
-    displayCurrentVersion();
-    try {
-      const updated = await syncGuideBook();
-      if (updated) {
-        console.log("[Guide-Book] New technical manual downloaded to AppData.");
-      }
-    } catch (e) {
-      console.warn("[Guide-Book] Update check failed:", e.message);
-    }
-  })();
+            try {
+                if (fs.existsSync(versionPath)) {
+                    const data = JSON.parse(fs.readFileSync(versionPath, 'utf8'));
+                    if (versionEl) versionEl.textContent = `V4 MANUAL: ${data.tag}`;
+                }
+            } catch (e) { console.error("Version check failed", e); }
+        }
+
+        // --- 4. BACKGROUND SYNC LOGIC ---
+        (async () => {
+            console.log("[Guide-Book] Checking for technical updates...");
+            displayCurrentVersion();
+            try {
+                const updated = await syncGuideBook();
+                if (updated) {
+                    console.log("[Guide-Book] New technical manual downloaded to AppData.");
+                }
+            } catch (e) {
+                console.warn("[Guide-Book] Update check failed:", e.message);
+            }
+        })();
         const menuBtn = document.getElementById('menuBtn');
         const sidebar = document.getElementById('sidebar');
         let isManualScrolling = false;
@@ -1778,7 +1980,17 @@
         }, observerOptions);
 
         document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+        function exportToPDF() {
+            window.print();
+        }
     </script>
-</body>
+
+    <!-- Floating PDF Export Button -->
+    <button onclick="exportToPDF()" class="export-pdf-fab" title="Export to PDF">
+        <span class="small-text">Export</span>
+        <span class="main-text">PDF</span>
+    </button>
+</body>thike
 
 </html>
