@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlutoBlocks V4 | Official X2 Technical Manual</title>
+    <title>PlutoBlocks Guide Book</title>
     <script src="./style.css"></script>
     <link href="./style.css" rel="stylesheet">
     <link href="./font-awesome-min.css" rel="stylesheet">
@@ -267,21 +267,20 @@
             }
         }
 
-        /* Float PDF Button Styling */
-        /* Enhanced Float PDF Button Styling */
+        /* Float PDF Button Styling - CIRCLE VERSION */
         .export-pdf-fab {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
             background: linear-gradient(135deg, #0ea5e9, #2563eb);
             color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            /* Pill shape */
+            /* Fixed width/height for circle */
+            width: 56px;
+            height: 56px;
+            border-radius: 50%; /* Circle shape */
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 24px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.5);
             z-index: 1000;
@@ -291,51 +290,23 @@
         }
 
         .export-pdf-fab:hover {
-            transform: translateY(-4px) scale(1.02);
+            transform: translateY(-4px) scale(1.1);
             box-shadow: 0 20px 30px -10px rgba(14, 165, 233, 0.6);
         }
 
         .export-pdf-fab:active {
-            transform: translateY(0) scale(0.98);
+            transform: translateY(0) scale(0.95);
         }
 
-        /* Icon Styling */
-        .export-pdf-fab i {
-            font-size: 1.2rem;
-        }
-
-        /* Text Styling */
-        .export-pdf-fab .text-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.1;
-        }
-
-        .export-pdf-fab .small-text {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            opacity: 0.9;
-            letter-spacing: 0.1em;
-            font-weight: 600;
-        }
-
-        .export-pdf-fab .main-text {
-            font-size: 0.95rem;
-            font-weight: 700;
-        }
-
-        /* Ensure SVG icon is white and sized correctly */
-        /* Ensure the PDF PNG icon is sized correctly */
+        /* Ensure the PDF PNG icon is sized correctly and centered */
         .export-pdf-fab img {
             width: 24px;
             height: 24px;
-            margin-right: 10px;
-            /* Space between image and text */
+            margin: 0; /* Removed margin-right */
             object-fit: contain;
         }
 
-        /* Loading Spinner (Optional for later) */
+        /* Loading Spinner */
         .fa-spinner {
             animation: spin 1s linear infinite;
         }
@@ -351,7 +322,6 @@
 <body class="text-slate-800">
 
     <div class="flex">
-        <!-- Sidebar -->
         <aside id="sidebar"
             class="fixed top-0 left-0 h-screen w-72 bg-slate-900 border-r border-slate-700 z-50 overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
             <div class="p-8">
@@ -360,7 +330,7 @@
                     <div class="leading-tight">
                         <h1 class="text-lg font-extrabold tracking-tight text-slate-100">Pluto<span
                                 class="text-sky-400"> Blocks</span></h1>
-                        <p id="guide-version" class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Master Guide V4</p>
+                        <p id="guide-version" class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Verifying...</p>
                     </div>
                 </div>
 
@@ -389,18 +359,16 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
         <main class="flex-1 lg:ml-72 min-h-screen">
             <header
                 class="lg:hidden bg-slate-900 border-b border-slate-700 p-4 sticky top-0 z-40 flex justify-between items-center">
-                <div class="font-bold text-slate-100">PlutoBlocks V4</div>
+                <div class="font-bold text-slate-100">PlutoBlocks</div>
                 <button id="menuBtn" class="p-2 text-slate-400"><i class="fas fa-bars text-xl"></i></button>
             </header>
 
             <div class="max-w-6xl mx-auto px-6 lg:px-12 py-16 space-y-32">
 
 
-                <!-- 1. Core Blocks -->
                 <section id="Core">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">1. Core Blocks</h2>
 
@@ -488,7 +456,6 @@
                     </div>
                 </section>
 
-                <!-- 2. LED Control -->
                 <section id="LED">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">2. LED Control</h2>
 
@@ -566,7 +533,6 @@
                     </div>
                 </section>
 
-                <!-- 3. Create Function -->
                 <section id="Function">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">3. Create Function</h2>
 
@@ -632,7 +598,6 @@
                     </div>
                 </section>
 
-                <!-- 4. Timer -->
                 <section id="Timer">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">4. Timer</h2>
 
@@ -691,7 +656,6 @@
                     </div>
                 </section>
 
-                <!-- 5. Peripheral -->
                 <section id="Peripheral">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">5. Peripheral Control</h2>
 
@@ -783,7 +747,6 @@
                     </div>
                 </section>
 
-                <!-- 6. Command -->
                 <section id="Command">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">6. Flight Command</h2>
 
@@ -859,7 +822,6 @@
                     </div>
                 </section>
 
-                <!-- 7. Motor -->
                 <section id="Motor">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">7. Motor Drive</h2>
 
@@ -957,7 +919,6 @@
                     </div>
                 </section>
 
-                <!-- 8. Remote Control -->
                 <section id="Remote">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">8. Remote Control</h2>
 
@@ -1082,7 +1043,6 @@
                     </div>
                 </section>
 
-                <!-- 9. Sensor -->
                 <section id="Sensor">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">9. Sensor Data</h2>
 
@@ -1173,7 +1133,6 @@
                     </div>
                 </section>
 
-                <!-- 10. Current State -->
                 <section id="State">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">10. Current State</h2>
 
@@ -1260,7 +1219,6 @@
                     </div>
                 </section>
 
-                <!-- 11. Desired State -->
                 <section id="Desired">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">11. Desired State</h2>
 
@@ -1319,7 +1277,6 @@
                     </div>
                 </section>
 
-                <!-- 12. Flight Mode -->
                 <section id="Mode">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">12. Flight Mode</h2>
 
@@ -1366,7 +1323,6 @@
                     </div>
                 </section>
 
-                <!-- 13. Flight Status -->
                 <section id="Status">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">13. Flight Status</h2>
 
@@ -1478,7 +1434,6 @@
                     </div>
                 </section>
 
-                <!-- 14. Console -->
                 <section id="Console">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">14. Console</h2>
 
@@ -1526,7 +1481,6 @@
                     </div>
                 </section>
 
-                <!-- 15. Logic -->
                 <section id="Logic">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">15. Logic</h2>
 
@@ -1641,7 +1595,6 @@
                     </div>
                 </section>
 
-                <!-- 16. Loops -->
                 <section id="Loops">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">16. Loops</h2>
 
@@ -1716,7 +1669,6 @@
                     </div>
                 </section>
 
-                <!-- 17. Math -->
                 <section id="Math">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">17. Math</h2>
 
@@ -1886,7 +1838,6 @@
                     </div>
                 </section>
 
-                <!-- 18. Variables -->
                 <section id="Variables">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">18. Variables</h2>
 
@@ -1977,16 +1928,25 @@
 
         // --- 3. VERSION DISPLAY ---
         function displayCurrentVersion() {
-            if (!guideCacheDir) return;
-            const versionPath = path.join(guideCacheDir, 'version.json');
             const versionEl = document.getElementById('guide-version');
+            if (!versionEl || !guideCacheDir) return;
+
+            const versionPath = path.join(guideCacheDir, 'version.json');
 
             try {
                 if (fs.existsSync(versionPath)) {
+                    // 1. Found the file, show the TAG
                     const data = JSON.parse(fs.readFileSync(versionPath, 'utf8'));
-                    if (versionEl) versionEl.textContent = `V4 MANUAL: ${data.tag}`;
+                    versionEl.textContent = `VERSION: ${data.tag}`;
+                    versionEl.classList.add('text-sky-400'); // Optional: Add color to show it's live
+                } else {
+                    // 2. File not found yet (first run), show default
+                    versionEl.textContent = "VERSION: Default";
                 }
-            } catch (e) { console.error("Version check failed", e); }
+            } catch (e) {
+                console.error("Version check failed", e);
+                versionEl.textContent = "VERSION: Unknown";
+            }
         }
 
         // --- 4. BACKGROUND SYNC LOGIC ---
@@ -2048,7 +2008,6 @@
         document.querySelectorAll('section').forEach(section => observer.observe(section));
 
         // --- 6. EXPORT FUNCTION (FIXED) ---
-        // --- 6. EXPORT FUNCTION (FIXED) ---
         async function exportToPDF() {
             const btn = document.getElementById('pdfBtn');
             const originalContent = btn.innerHTML;
@@ -2056,12 +2015,12 @@
             // Visual Loading State
             btn.style.opacity = '0.7';
             btn.style.pointerEvents = 'none';
+            // Just show the spinner, centered
             btn.innerHTML = `
             <svg class="fa-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" style="width:24px;height:24px;animation:spin 1s linear infinite;">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="white" stroke-width="4"></circle>
                 <path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            <div class="text-container"><span class="main-text">Saving...</span></div>
         `;
 
             try {
@@ -2076,7 +2035,7 @@
 
                 const { filePath } = await dialog.showSaveDialog({
                     title: 'Save Manual',
-                    defaultPath: 'PlutoBlocks-V4-Guide.pdf',
+                    defaultPath: 'PlutoBlocks-Guide.pdf',
                     filters: [{ name: 'PDF Files', extensions: ['pdf'] }]
                 });
 
@@ -2095,13 +2054,8 @@
         }
     </script>
 
-    <!-- Floating PDF Export Button -->
     <button onclick="exportToPDF()" class="export-pdf-fab" id="pdfBtn" title="Save as PDF">
         <img src="gbassets/pdf.png" alt="PDF Icon">
-        <div class="text-container">
-            <span class="small-text">Save as</span>
-            <span class="main-text">PDF</span>
-        </div>
     </button>
 </body>
 
