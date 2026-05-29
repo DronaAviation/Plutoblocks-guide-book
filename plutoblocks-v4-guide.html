@@ -640,39 +640,39 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="info-card">
+                            <h4 class="font-bold">Set Timer</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/timer_1.png" alt="Set Timer Block" class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Starts a millisecond countdown interval.</p>
+                                <p class="text-body">Sets up a countdown clock in milliseconds (1000 ms = 1 second) and chooses if it should start counting down again automatically when it finishes.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Precise hover duration timing, sequential mission phase management,
-                                    sensor data collection intervals, or timed flight pattern transitions.</p>
+                                <p class="text-body">Keep the drone hovering in one spot for exactly 3 seconds, turn a warning light on for 1 second, or perform a safety check every 5 seconds.</p>
                             </div>
                         </div>
                         <div class="info-card">
+                            <h4 class="font-bold">Reset Timer</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/timer_2.png" alt="Timer Done Block" class="w-auto h-auto max-w-full">
+                                <img src="gbassets/timer_2.png" alt="Reset Timer Block" class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Checks if the timer has reached zero.</p>
+                                <p class="text-body">Restarts your countdown clock back from the beginning, just like pressing the reset button on a stopwatch.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Time-triggered autonomous landings, mission phase completion
-                                    detection, or sequential command execution based on elapsed duration thresholds.</p>
+                                <p class="text-body">Restarting a safety countdown when a remote command is received, or starting a fresh hover period after completing a flight movement.</p>
                             </div>
                         </div>
                         <div class="info-card">
+                            <h4 class="font-bold">Check Timer</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/timer_3.png" alt="Get Timer Block" class="w-auto h-auto max-w-full">
+                                <img src="gbassets/timer_3.png" alt="Check Timer Block" class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Reads the current timer value.</p>
+                                <p class="text-body">Checks if your countdown clock has finished. It says "Yes" (true) if the time is up, and "No" (false) if it is still counting.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Monitor elapsed time, create time-based logic, or log duration of
-                                    specific flight events.</p>
+                                <p class="text-body">Automatically landing the drone after a 5-second countdown finishes, changing direction when a phase timer runs out, or flashing a light every time a cycle is complete.</p>
                             </div>
                         </div>
                     </div>
