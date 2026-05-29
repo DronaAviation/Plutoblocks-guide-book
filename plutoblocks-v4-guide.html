@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlutoBlocks Guide Book</title>
+    <title>PlutoBlocks V4 | Official X2 Technical Manual</title>
     <script src="./style.css"></script>
     <link href="./style.css" rel="stylesheet">
     <link href="./font-awesome-min.css" rel="stylesheet">
@@ -267,20 +267,21 @@
             }
         }
 
-        /* Float PDF Button Styling - CIRCLE VERSION */
+        /* Float PDF Button Styling */
+        /* Enhanced Float PDF Button Styling */
         .export-pdf-fab {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
             background: linear-gradient(135deg, #0ea5e9, #2563eb);
             color: white;
-            /* Fixed width/height for circle */
-            width: 56px;
-            height: 56px;
-            border-radius: 50%; /* Circle shape */
+            padding: 12px 24px;
+            border-radius: 50px;
+            /* Pill shape */
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 12px 24px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.5);
             z-index: 1000;
@@ -290,23 +291,51 @@
         }
 
         .export-pdf-fab:hover {
-            transform: translateY(-4px) scale(1.1);
+            transform: translateY(-4px) scale(1.02);
             box-shadow: 0 20px 30px -10px rgba(14, 165, 233, 0.6);
         }
 
         .export-pdf-fab:active {
-            transform: translateY(0) scale(0.95);
+            transform: translateY(0) scale(0.98);
         }
 
-        /* Ensure the PDF PNG icon is sized correctly and centered */
+        /* Icon Styling */
+        .export-pdf-fab i {
+            font-size: 1.2rem;
+        }
+
+        /* Text Styling */
+        .export-pdf-fab .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.1;
+        }
+
+        .export-pdf-fab .small-text {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            opacity: 0.9;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .export-pdf-fab .main-text {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        /* Ensure SVG icon is white and sized correctly */
+        /* Ensure the PDF PNG icon is sized correctly */
         .export-pdf-fab img {
             width: 24px;
             height: 24px;
-            margin: 0; /* Removed margin-right */
+            margin-right: 10px;
+            /* Space between image and text */
             object-fit: contain;
         }
 
-        /* Loading Spinner */
+        /* Loading Spinner (Optional for later) */
         .fa-spinner {
             animation: spin 1s linear infinite;
         }
@@ -322,6 +351,7 @@
 <body class="text-slate-800">
 
     <div class="flex">
+        <!-- Sidebar -->
         <aside id="sidebar"
             class="fixed top-0 left-0 h-screen w-72 bg-slate-900 border-r border-slate-700 z-50 overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
             <div class="p-8">
@@ -330,7 +360,7 @@
                     <div class="leading-tight">
                         <h1 class="text-lg font-extrabold tracking-tight text-slate-100">Pluto<span
                                 class="text-sky-400"> Blocks</span></h1>
-                        <p id="guide-version" class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Verifying...</p>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Master Guide V4</p>
                     </div>
                 </div>
 
@@ -359,16 +389,18 @@
             </div>
         </aside>
 
+        <!-- Main Content -->
         <main class="flex-1 lg:ml-72 min-h-screen">
             <header
                 class="lg:hidden bg-slate-900 border-b border-slate-700 p-4 sticky top-0 z-40 flex justify-between items-center">
-                <div class="font-bold text-slate-100">PlutoBlocks</div>
+                <div class="font-bold text-slate-100">PlutoBlocks V4</div>
                 <button id="menuBtn" class="p-2 text-slate-400"><i class="fas fa-bars text-xl"></i></button>
             </header>
 
             <div class="max-w-6xl mx-auto px-6 lg:px-12 py-16 space-y-32">
 
 
+                <!-- 1. Core Blocks -->
                 <section id="Core">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">1. Core Blocks</h2>
 
@@ -396,7 +428,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h3 class="font-bold">Select Receiver Mode</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/32.png" alt="Select Receiver Mode Block"
                                     class="w-auto h-auto max-w-full">
@@ -412,7 +443,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">on start</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/33.png" alt="on start Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -426,7 +456,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">pluto loop</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/34.png" alt="pluto loop Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -440,7 +469,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">on stop</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/35.png" alt="on stop Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -456,6 +484,7 @@
                     </div>
                 </section>
 
+                <!-- 2. LED Control -->
                 <section id="LED">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">2. LED Control</h2>
 
@@ -490,7 +519,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h3 class="font-bold">Red LED</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/36.png" alt="Red LED Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -504,7 +532,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Green LED</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/37.png" alt="Green LED Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -517,7 +544,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Blue LED</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/38.png" alt="Blue LED Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -533,6 +559,7 @@
                     </div>
                 </section>
 
+                <!-- 3. Create Function -->
                 <section id="Function">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">3. Create Function</h2>
 
@@ -551,7 +578,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h3 class="font-bold">Define Function</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/create_function_1.png" alt="Define Function Code Block"
                                     class="w-auto h-auto max-w-full">
@@ -566,7 +592,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Call Function</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/create_function_2.png" alt="Call Function Code Block"
                                     class="w-auto h-auto max-w-full">
@@ -581,7 +606,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Custom C++</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/create_function_3.png" alt="Custom C++ Code Block"
                                     class="w-auto h-auto max-w-full">
@@ -598,6 +622,7 @@
                     </div>
                 </section>
 
+                <!-- 4. Timer -->
                 <section id="Timer">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">4. Timer</h2>
 
@@ -615,47 +640,54 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h3 class="font-bold">Set Timer</h3>
+                            <h4 class="font-bold">Set Timer</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/timer_1.png" alt="Set Timer Block" class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Starts a millisecond countdown interval.</p>
+                                <p class="text-body">Sets up a countdown clock in milliseconds (1000 ms = 1 second) and
+                                    chooses if it should start counting down again automatically when it finishes.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Precise hover duration timing, sequential mission phase management,
-                                    sensor data collection intervals, or timed flight pattern transitions.</p>
+                                <p class="text-body">Keep the drone hovering in one spot for exactly 3 seconds, turn a
+                                    warning light on for 1 second, or perform a safety check every 5 seconds.</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Timer Done?</h3>
+                            <h4 class="font-bold">Reset Timer</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/timer_2.png" alt="Timer Done Block" class="w-auto h-auto max-w-full">
+                                <img src="gbassets/timer_2.png" alt="Reset Timer Block"
+                                    class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Checks if the timer has reached zero.</p>
+                                <p class="text-body">Restarts your countdown clock back from the beginning, just like
+                                    pressing the reset button on a stopwatch.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Time-triggered autonomous landings, mission phase completion
-                                    detection, or sequential command execution based on elapsed duration thresholds.</p>
+                                <p class="text-body">Restarting a safety countdown when a remote command is received, or
+                                    starting a fresh hover period after completing a flight movement.</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Get Timer</h3>
+                            <h4 class="font-bold">Check Timer</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/timer_3.png" alt="Get Timer Block" class="w-auto h-auto max-w-full">
+                                <img src="gbassets/timer_3.png" alt="Check Timer Block"
+                                    class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Reads the current timer value.</p>
+                                <p class="text-body">Checks if your countdown clock has finished. It says "Yes" (true)
+                                    if the time is up, and "No" (false) if it is still counting.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Monitor elapsed time, create time-based logic, or log duration of
-                                    specific flight events.</p>
+                                <p class="text-body">Automatically landing the drone after a 5-second countdown
+                                    finishes, changing direction when a phase timer runs out, or flashing a light every
+                                    time a cycle is complete.</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
+                <!-- 5. Peripheral -->
                 <section id="Peripheral">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">5. Peripheral Control</h2>
 
@@ -673,7 +705,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h3 class="font-bold">Read ADC</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/peripheral_1.png" alt="Read ADC Block"
                                     class="w-auto h-auto max-w-full">
@@ -688,7 +719,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Digital Write</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/peripheral_2.png" alt="Digital Write Block"
                                     class="w-auto h-auto max-w-full">
@@ -702,7 +732,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Servo Control</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/peripheral_3.png" alt="Servo Control Block"
                                     class="w-auto h-auto max-w-full">
@@ -717,7 +746,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Digital Read</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/peripheral_4.png" alt="Digital Read Block"
                                     class="w-auto h-auto max-w-full">
@@ -731,7 +759,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">PWM Output</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/peripheral_5.png" alt="PWM Output Block"
                                     class="w-auto h-auto max-w-full">
@@ -747,6 +774,7 @@
                     </div>
                 </section>
 
+                <!-- 6. Command -->
                 <section id="Command">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">6. Flight Command</h2>
 
@@ -764,7 +792,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h3 class="font-bold">Take Off</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/command_1.png" alt="Take Off Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -777,7 +804,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Land</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/command_2.png" alt="Land Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -790,7 +816,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Arm</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/command_3.png" alt="Arm Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -799,7 +824,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Flip</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/command_4.png" alt="Flip Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -808,7 +832,6 @@
                             </div>
                         </div>
                         <div class="info-card border-l-4 border-l-red-500">
-                            <h3 class="font-bold text-red-600">Disarm</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/command_5.png" alt="Disarm Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -822,6 +845,7 @@
                     </div>
                 </section>
 
+                <!-- 7. Motor -->
                 <section id="Motor">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">7. Motor Drive</h2>
 
@@ -839,7 +863,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="info-card">
-                            <h3 class="font-bold">Motor M1</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/motor_1.png" alt="Motor M1 Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -852,7 +875,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Motor M2</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/motor_2.png" alt="Motor M2 Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -865,7 +887,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Motor M3</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/motor_3.png" alt="Motor M3 Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -878,7 +899,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Motor M4</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/motor_4.png" alt="Motor M4 Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -891,7 +911,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Motor M5</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/motor_5.png" alt="Motor M5 Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -904,7 +923,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Motor M6</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/motor_6.png" alt="Motor M6 Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -919,6 +937,7 @@
                     </div>
                 </section>
 
+                <!-- 8. Remote Control -->
                 <section id="Remote">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">8. Remote Control</h2>
 
@@ -1043,6 +1062,7 @@
                     </div>
                 </section>
 
+                <!-- 9. Sensor -->
                 <section id="Sensor">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">9. Sensor Data</h2>
 
@@ -1061,7 +1081,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h3 class="font-bold">Accelerometer X/Y/Z</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/sensor_1.png" alt="Accelerometer Block"
                                     class="w-auto h-auto max-w-full">
@@ -1076,7 +1095,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Gyroscope X/Y/Z</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/sensor_2.png" alt="Gyroscope Block" class="w-auto h-auto max-w-full">
                             </div>
@@ -1089,7 +1107,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Magnetometer Heading</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/sensor_3.png" alt="Magnetometer Block"
                                     class="w-auto h-auto max-w-full">
@@ -1103,21 +1120,20 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Battery Voltage</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/sensor_4.png" alt="Battery Voltage Block"
-                                    class="w-auto h-auto max-w-full">
+                                <img src="gbassets/sensor_4.png" alt="Barometer Block" class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Returns raw battery cell voltage (mV).</p>
+                                <p class="text-body">Returns current atmospheric pressure (in 100* millibar) or
+                                    temperature (in 100* &deg;C) based on the selection.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Real-time battery health monitoring, voltage-triggered failsafe
-                                    procedures, or flight-time estimation based on remaining cell voltage.</p>
+                                <p class="text-body">Launch-on-blow detection (triggering takeoff by detecting sudden
+                                    pressure changes when blowing on the drone), altitude estimation, or temperature
+                                    logging.</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Battery Health</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/sensor_5.png" alt="Battery Health Block"
                                     class="w-auto h-auto max-w-full">
@@ -1133,6 +1149,7 @@
                     </div>
                 </section>
 
+                <!-- 10. Current State -->
                 <section id="State">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">10. Current State</h2>
 
@@ -1150,7 +1167,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h3 class="font-bold">Current Roll</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/current_1.png" alt="Current Roll Block"
                                     class="w-auto h-auto max-w-full">
@@ -1164,7 +1180,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Current Pitch</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/current_2.png" alt="Current Pitch Block"
                                     class="w-auto h-auto max-w-full">
@@ -1177,7 +1192,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Current Yaw</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/current_3.png" alt="Current Yaw Block"
                                     class="w-auto h-auto max-w-full">
@@ -1190,7 +1204,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Current Height</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/current_4.png" alt="Current Height Block"
                                     class="w-auto h-auto max-w-full">
@@ -1204,21 +1217,24 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">Trim Value</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/current_5.png" alt="Trim Value Block"
+                                <img src="gbassets/current_5.png" alt="Get App Heading Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Current trim offset value.</p>
+                                <p class="text-body">Returns the smartphone's heading angle (0 to 360 degrees) from the
+                                    Pluto Controller app.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Auto-trimming algorithms or drift compensation logic.</p>
+                                <p class="text-body">Phone-guided heading lock (aligning the drone's yaw orientation
+                                    with the phone's heading), phone-controlled yaw steering, or interactive remote
+                                    flight modes.</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
+                <!-- 11. Desired State -->
                 <section id="Desired">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">11. Desired State</h2>
 
@@ -1277,6 +1293,7 @@
                     </div>
                 </section>
 
+                <!-- 12. Flight Mode -->
                 <section id="Mode">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">12. Flight Mode</h2>
 
@@ -1294,7 +1311,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="info-card">
-                            <h3 class="font-bold">Is Headfree?</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/flight_1.png" alt="Headfree Mode Block"
                                     class="w-auto h-auto max-w-full">
@@ -1308,7 +1324,6 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3 class="font-bold">MagHold Mode</h3>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
                                 <img src="gbassets/flight_2.png" alt="MagHold Mode Block"
                                     class="w-auto h-auto max-w-full">
@@ -1323,6 +1338,7 @@
                     </div>
                 </section>
 
+                <!-- 13. Flight Status -->
                 <section id="Status">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">13. Flight Status</h2>
 
@@ -1353,71 +1369,79 @@
                                     armed state dependent automation routines.</p>
                             </div>
                         </div>
+                        <div class="info-card border-l-4 border-l-green-400">
+                            <h4 class="font-bold">Ok to Arm?</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_status_2.png" alt="Ok to Arm Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks whether the drone is ready to be armed (e.g. sensor
+                                    calibration complete, stable telemetry connection).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Pre-flight checks, automatic arming sequences, or startup
+                                    diagnostic indicators.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Is Signal Lost?</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_status_3.png" alt="Is Signal Lost Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if the connection between the drone and the
+                                    controller/smartphone is lost.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Emergency fail-safe routines, automatic landing during signal loss,
+                                    or telemetry connection warning alerts.</p>
+                            </div>
+                        </div>
                         <div class="info-card border-l-4 border-l-red-500">
-                            <h4 class="font-bold">Crashed?</h4>
+                            <h4 class="font-bold">Is Crashed?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/flight_status_2.png" alt="Crashed Block"
+                                <img src="gbassets/flight_status_4.png" alt="Is Crashed Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Returns True on heavy impact.</p>
+                                <p class="text-body">Checks whether the drone has experienced a crash or a heavy impact.
+                                </p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Immediate motor cutoff on collision, impact-based emergency
-                                    procedures, or crash recovery logging and notification.</p>
+                                <p class="text-body">Immediate motor cutoff on collision to prevent motor burnout,
+                                    impact logging, or crash recovery notifications.</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <h4 class="font-bold">Is Auto Stable?</h4>
+                            <h4 class="font-bold">Is Inflight Low Battery?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/flight_status_3.png" alt="Is Auto Stable Block"
+                                <img src="gbassets/flight_status_5.png" alt="Is Inflight Low Battery Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Checks if auto-stability is active.</p>
+                                <p class="text-body">Checks whether the battery voltage falls below the safe threshold
+                                    while flying.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Conditional logic for stability-dependent maneuvers.</p>
+                                <p class="text-body">Trigger automatic emergency landing or flash the Red LED to alert
+                                    the pilot of low battery during flight.</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <h4 class="font-bold">Is Alt Hold?</h4>
+                            <h4 class="font-bold">Is Low Battery?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/flight_status_4.png" alt="Is Alt Hold Block"
+                                <img src="gbassets/flight_status_6.png" alt="Is Low Battery Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Checks if altitude hold is engaged.</p>
+                                <p class="text-body">Checks if the drone battery is low under no load (before takeoff).
+                                </p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Triggering photo capture when hovering at stable altitude.</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <h4 class="font-bold">Is Dev Mode?</h4>
-                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/flight_status_5.png" alt="Is Dev Mode Block"
-                                    class="w-auto h-auto max-w-full">
-                            </div>
-                            <div><span class="label">Function</span>
-                                <p class="text-body">Checks if developer mode is active.</p>
-                            </div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Enabling advanced debugging features or experimental flight
-                                    controls.</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <h4 class="font-bold">Is Mag Hold?</h4>
-                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/flight_status_6.png" alt="Is Mag Hold Block"
-                                    class="w-auto h-auto max-w-full">
-                            </div>
-                            <div><span class="label">Function</span>
-                                <p class="text-body">Checks if magnetometer hold is active.</p>
-                            </div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Visual indication of heading lock status.</p>
+                                <p class="text-body">Block takeoff if battery is low, and trigger battery
+                                    charging/maintenance alerts.</p>
                             </div>
                         </div>
                         <div class="info-card border-l-4 border-l-blue-500">
@@ -1434,6 +1458,7 @@
                     </div>
                 </section>
 
+                <!-- 14. Console -->
                 <section id="Console">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">14. Console</h2>
 
@@ -1481,6 +1506,7 @@
                     </div>
                 </section>
 
+                <!-- 15. Logic -->
                 <section id="Logic">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">15. Logic</h2>
 
@@ -1595,6 +1621,7 @@
                     </div>
                 </section>
 
+                <!-- 16. Loops -->
                 <section id="Loops">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">16. Loops</h2>
 
@@ -1669,6 +1696,7 @@
                     </div>
                 </section>
 
+                <!-- 17. Math -->
                 <section id="Math">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">17. Math</h2>
 
@@ -1838,6 +1866,7 @@
                     </div>
                 </section>
 
+                <!-- 18. Variables -->
                 <section id="Variables">
                     <h2 class="text-3xl font-black text-sky-400 mb-10">18. Variables</h2>
 
@@ -1855,45 +1884,48 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <h4 class="font-bold">Store Data</h4>
+                            <h4 class="font-bold">Create Integer</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/variables_1.png" alt="Store Data Block"
+                                <img src="gbassets/variables_1.png" alt="Create Integer Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Creates a temporary memory to hold a number.</p>
+                                <p class="text-body">Declares and initializes an integer variable (whole numbers) in
+                                    memory.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Flight reference point tracking, mission state persistence, or
-                                    historical data logging for performance analysis and recovery sequences.</p>
+                                <p class="text-body">Counting loop iterations, counting execution attempts, tracking
+                                    program states, or keeping track of flip counts.</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <h4 class="font-bold">Get Data</h4>
+                            <h4 class="font-bold">Create Float</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/variables_2.png" alt="Get Data Block"
+                                <img src="gbassets/variables_2.png" alt="Create Float Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Retrieves a value from a variable.</p>
+                                <p class="text-body">Declares and initializes a float variable (decimal numbers) to
+                                    store fractional values.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Flight reference point tracking, mission state persistence, or
-                                    historical data logging for performance analysis and recovery sequences.</p>
+                                <p class="text-body">Storing sensor readings with decimals, tracking exact roll/pitch
+                                    angles, PID gain parameters, or distance calculations.</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <h4 class="font-bold">Change Data</h4>
+                            <h4 class="font-bold">Create Boolean</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/variables_3.png" alt="Change Data Block"
+                                <img src="gbassets/variables_3.png" alt="Create Boolean Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Changes the value of a variable by a certain amount.</p>
+                                <p class="text-body">Declares and initializes a boolean variable (true or false) to
+                                    represent binary state flags.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Flight reference point tracking, mission state persistence, or
-                                    historical data logging for performance analysis and recovery sequences.</p>
+                                <p class="text-body">Creating a toggle switch for LEDs, marking a mission task as
+                                    complete, safety guards, or conditional arming gates.</p>
                             </div>
                         </div>
                     </div>
@@ -1928,25 +1960,16 @@
 
         // --- 3. VERSION DISPLAY ---
         function displayCurrentVersion() {
-            const versionEl = document.getElementById('guide-version');
-            if (!versionEl || !guideCacheDir) return;
-
+            if (!guideCacheDir) return;
             const versionPath = path.join(guideCacheDir, 'version.json');
+            const versionEl = document.getElementById('guide-version');
 
             try {
                 if (fs.existsSync(versionPath)) {
-                    // 1. Found the file, show the TAG
                     const data = JSON.parse(fs.readFileSync(versionPath, 'utf8'));
-                    versionEl.textContent = `VERSION: ${data.tag}`;
-                    versionEl.classList.add('text-sky-400'); // Optional: Add color to show it's live
-                } else {
-                    // 2. File not found yet (first run), show default
-                    versionEl.textContent = "VERSION: Default";
+                    if (versionEl) versionEl.textContent = `V4 MANUAL: ${data.tag}`;
                 }
-            } catch (e) {
-                console.error("Version check failed", e);
-                versionEl.textContent = "VERSION: Unknown";
-            }
+            } catch (e) { console.error("Version check failed", e); }
         }
 
         // --- 4. BACKGROUND SYNC LOGIC ---
@@ -2008,6 +2031,7 @@
         document.querySelectorAll('section').forEach(section => observer.observe(section));
 
         // --- 6. EXPORT FUNCTION (FIXED) ---
+        // --- 6. EXPORT FUNCTION (FIXED) ---
         async function exportToPDF() {
             const btn = document.getElementById('pdfBtn');
             const originalContent = btn.innerHTML;
@@ -2015,12 +2039,12 @@
             // Visual Loading State
             btn.style.opacity = '0.7';
             btn.style.pointerEvents = 'none';
-            // Just show the spinner, centered
             btn.innerHTML = `
             <svg class="fa-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" style="width:24px;height:24px;animation:spin 1s linear infinite;">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="white" stroke-width="4"></circle>
                 <path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
+            <div class="text-container"><span class="main-text">Saving...</span></div>
         `;
 
             try {
@@ -2035,7 +2059,7 @@
 
                 const { filePath } = await dialog.showSaveDialog({
                     title: 'Save Manual',
-                    defaultPath: 'PlutoBlocks-Guide.pdf',
+                    defaultPath: 'PlutoBlocks-V4-Guide.pdf',
                     filters: [{ name: 'PDF Files', extensions: ['pdf'] }]
                 });
 
@@ -2054,8 +2078,13 @@
         }
     </script>
 
+    <!-- Floating PDF Export Button -->
     <button onclick="exportToPDF()" class="export-pdf-fab" id="pdfBtn" title="Save as PDF">
         <img src="gbassets/pdf.png" alt="PDF Icon">
+        <div class="text-container">
+            <span class="small-text">Save as</span>
+            <span class="main-text">PDF</span>
+        </div>
     </button>
 </body>
 
