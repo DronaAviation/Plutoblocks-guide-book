@@ -1355,71 +1355,69 @@
                                     armed state dependent automation routines.</p>
                             </div>
                         </div>
+                        <div class="info-card border-l-4 border-l-green-400">
+                            <h4 class="font-bold">Ok to Arm?</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_status_2.png" alt="Ok to Arm Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks whether the drone is ready to be armed (e.g. sensor calibration complete, stable telemetry connection).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Pre-flight checks, automatic arming sequences, or startup diagnostic indicators.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <h4 class="font-bold">Is Signal Lost?</h4>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/flight_status_3.png" alt="Is Signal Lost Block"
+                                    class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if the connection between the drone and the controller/smartphone is lost.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Emergency fail-safe routines, automatic landing during signal loss, or telemetry connection warning alerts.</p>
+                            </div>
+                        </div>
                         <div class="info-card border-l-4 border-l-red-500">
-                            <h4 class="font-bold">Crashed?</h4>
+                            <h4 class="font-bold">Is Crashed?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/flight_status_2.png" alt="Crashed Block"
+                                <img src="gbassets/flight_status_4.png" alt="Is Crashed Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Returns True on heavy impact.</p>
+                                <p class="text-body">Checks whether the drone has experienced a crash or a heavy impact.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Immediate motor cutoff on collision, impact-based emergency
-                                    procedures, or crash recovery logging and notification.</p>
+                                <p class="text-body">Immediate motor cutoff on collision to prevent motor burnout, impact logging, or crash recovery notifications.</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <h4 class="font-bold">Is Auto Stable?</h4>
+                            <h4 class="font-bold">Is Inflight Low Battery?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/flight_status_3.png" alt="Is Auto Stable Block"
+                                <img src="gbassets/flight_status_5.png" alt="Is Inflight Low Battery Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Checks if auto-stability is active.</p>
+                                <p class="text-body">Checks whether the battery voltage falls below the safe threshold while flying.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Conditional logic for stability-dependent maneuvers.</p>
+                                <p class="text-body">Trigger automatic emergency landing or flash the Red LED to alert the pilot of low battery during flight.</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <h4 class="font-bold">Is Alt Hold?</h4>
+                            <h4 class="font-bold">Is Low Battery?</h4>
                             <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/flight_status_4.png" alt="Is Alt Hold Block"
+                                <img src="gbassets/flight_status_6.png" alt="Is Low Battery Block"
                                     class="w-auto h-auto max-w-full">
                             </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Checks if altitude hold is engaged.</p>
+                                <p class="text-body">Checks if the drone battery is low under no load (before takeoff).</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Triggering photo capture when hovering at stable altitude.</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <h4 class="font-bold">Is Dev Mode?</h4>
-                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/flight_status_5.png" alt="Is Dev Mode Block"
-                                    class="w-auto h-auto max-w-full">
-                            </div>
-                            <div><span class="label">Function</span>
-                                <p class="text-body">Checks if developer mode is active.</p>
-                            </div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Enabling advanced debugging features or experimental flight
-                                    controls.</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <h4 class="font-bold">Is Mag Hold?</h4>
-                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
-                                <img src="gbassets/flight_status_6.png" alt="Is Mag Hold Block"
-                                    class="w-auto h-auto max-w-full">
-                            </div>
-                            <div><span class="label">Function</span>
-                                <p class="text-body">Checks if magnetometer hold is active.</p>
-                            </div>
-                            <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Visual indication of heading lock status.</p>
+                                <p class="text-body">Block takeoff if battery is low, and trigger battery charging/maintenance alerts.</p>
                             </div>
                         </div>
                         <div class="info-card border-l-4 border-l-blue-500">
