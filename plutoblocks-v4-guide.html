@@ -1900,7 +1900,9 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <div class="pb-block block-oled">OLED Initialize</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_1.png" alt="OLED Initialize Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Boots up the physical monochromatic OLED display screen.</p>
                             </div>
@@ -1909,7 +1911,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-oled">OLED Clear</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_2.png" alt="OLED Clear Screen Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Clears all pixels from the display buffer, turning the screen black.</p>
                             </div>
@@ -1918,7 +1922,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-oled">OLED Update</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_3.png" alt="OLED Update Frame Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Pushes all buffered text, values, and shape drawings onto the physical screen.</p>
                             </div>
@@ -1927,7 +1933,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-oled">Draw Text</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_4.png" alt="OLED Draw Text Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Draws a text string at specified (X, Y) coordinates (0,0 is top-left).</p>
                             </div>
@@ -1936,7 +1944,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-oled">Draw Number</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_5.png" alt="OLED Draw Number Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Renders a numerical value or active variable at specified (X, Y) coordinates.</p>
                             </div>
@@ -1945,7 +1955,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-oled">Draw Pixel</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_18.png" alt="OLED Draw Pixel Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Turns a single pixel on or off at the specified (X, Y) coordinate.</p>
                             </div>
@@ -1954,7 +1966,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-oled">Draw Line</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_7.png" alt="OLED Draw Line Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Draws a straight line from coordinate (X0, Y0) to (X1, Y1).</p>
                             </div>
@@ -1963,12 +1977,102 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-oled">Draw Rectangle</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_8.png" alt="OLED Draw Rect Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Draws a solid filled or wireframe hollow rectangle of width W and height H starting at (X, Y).</p>
+                                <p class="text-body">Draws a solid filled rectangle of width W and height H starting at (X, Y).</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
-                                <p class="text-body">Drawing visual progress bars, cell borders, player paddles, or warning notification window shapes.</p>
+                                <p class="text-body">Drawing visual progress bars, player paddles, or filled warning notification window shapes.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_9.png" alt="OLED Rect Outline Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Draws a hollow wireframe rectangle of width W and height H starting at (X, Y).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Creating border frames for tables, grouping different data elements, or rendering outline boxes for game UI.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_10.png" alt="OLED Draw Circle Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Draws a hollow circle with center coordinates (cx, cy) and radius r.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Rendering telemetry radar screens, target scopes, or circular dials for drone orientation.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_11.png" alt="OLED Erase Area Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Erases all pixels in a rectangular area of width W and height H starting at (X, Y) by turning them off.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Selectively clearing dynamic number display regions before rendering new readings without flashing the entire screen.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_13.png" alt="OLED Round Eyes Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Draws robotic round eyes on the display with customizable pupil offsets (pupilX, pupilY).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Building an interactive robot face for the drone that rolls or pitches its pupils to indicate movement direction.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_14.png" alt="OLED Dead Eyes Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Draws crossed dead eyes on the display, indicating a critical event.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Triggering a skull/dead-eyes screen mode when the drone crashes, hits low battery, or is disarmed.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_15.png" alt="OLED Draw Joysticks Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Renders a visual mapping of the RC joystick controls (throttle, yaw, roll, pitch values) as coordinate crosshairs.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Displaying live pilot stick positions on the screen for telemetry monitoring and pilot flight analysis.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_16.png" alt="OLED Pitch Line Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Draws a horizon-style tilt/pitch indicator line corresponding to the drone's current pitch angle in degrees.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Building an artificial horizon HUD dashboard to visually see the drone's real-time pitch attitude.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/oled_17.png" alt="OLED Roll Line Block" class="w-auto h-auto max-w-full">
+                            </div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Draws a horizon-style tilt/roll indicator line corresponding to the drone's current roll angle in degrees.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Building an artificial horizon HUD dashboard to visually see the drone's real-time roll attitude.</p>
                             </div>
                         </div>
                     </div>
