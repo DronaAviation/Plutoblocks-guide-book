@@ -2087,14 +2087,23 @@
                         <p class="text-slate-200 leading-relaxed mb-4">
                             <span class="font-bold text-slate-100">Measure distances and avoid collisions</span> using onboard laser-based rangefinder sensors.
                         </p>
-                        <p class="text-slate-200 leading-relaxed">
+                        <p class="text-slate-200 leading-relaxed mb-4">
                             Initialize ranging sensors in four directions, configure automated obstacle avoidance, trigger proximity alerts, or acquire exact millimeter range metrics.
                         </p>
+                        <div class="mt-4 p-3 bg-amber-950/40 border border-amber-800/80 rounded-lg flex items-start gap-3 text-amber-200">
+                            <i class="fas fa-exclamation-triangle mt-1"></i>
+                            <div>
+                                <span class="font-bold text-amber-100">Compatibility Note:</span>
+                                <p class="text-xs text-amber-300 mt-1">The ranging sensor blocks and obstacle avoidance features are exclusive to the <strong>PrimusX2</strong> boards.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="info-card">
-                            <div class="pb-block block-ranging">XRanging Init All</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/ranging_7.png" alt="XRanging Init All Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Initializes all range sensors (Left, Right, Front, Back) at once.</p>
                             </div>
@@ -2103,7 +2112,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-ranging">XRanging Init Sensor</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/ranging_1.png" alt="XRanging Init Sensor Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Initializes a specific directional sensor (Left, Right, Front, Back) with a distance threshold.</p>
                             </div>
@@ -2112,7 +2123,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-ranging">XRanging Init OA</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/ranging_2.png" alt="XRanging Init OA Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Configures the automatic object avoidance algorithm with an avoidance distance.</p>
                             </div>
@@ -2121,7 +2134,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-ranging">XRanging Enable OA</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/ranging_3.png" alt="XRanging Enable OA Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Enables the automatic obstacle avoidance system overrides.</p>
                             </div>
@@ -2130,7 +2145,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-ranging">XRanging Disable OA</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/ranging_4.png" alt="XRanging Disable OA Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Disables the automatic obstacle avoidance overrides.</p>
                             </div>
@@ -2139,7 +2156,9 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-ranging">XRanging Triggered?</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/ranging_5.png" alt="XRanging Triggered? Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
                                 <p class="text-body">Checks if a specific directional range sensor is triggered (object closer than threshold).</p>
                             </div>
@@ -2148,9 +2167,11 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <div class="pb-block block-ranging">XRanging Get Range</div>
+                            <div class="pb-block" style="background-color: transparent; padding: 0; box-shadow: none;">
+                                <img src="gbassets/ranging_6.png" alt="XRanging Get Range Block" class="w-auto h-auto max-w-full">
+                            </div>
                             <div><span class="label">Function</span>
-                                <p class="text-body">Retrieves the actual measured distance in millimeters (mm) from a specific sensor.</p>
+                                <p class="text-body">Retrieves the actual measured distance in centimeters (cm) from a specific sensor.</p>
                             </div>
                             <div class="use-case-box"><span class="label">Project Ideas</span>
                                 <p class="text-body">Building a dynamic distance display on the OLED, or writing proportional navigation code to track a target.</p>
