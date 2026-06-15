@@ -136,6 +136,14 @@
             background-color: #A55B5B;
         }
 
+        .block-oled {
+            background-color: #0ea5e9;
+        }
+
+        .block-ranging {
+            background-color: #00a896;
+        }
+
         .info-card {
             background: #1e293b;
             border: 1px solid #334155;
@@ -384,6 +392,8 @@
                     <a href="#Loops" class="sidebar-item block px-4 py-2 rounded-lg text-sm">16. Loops</a>
                     <a href="#Math" class="sidebar-item block px-4 py-2 rounded-lg text-sm">17. Math</a>
                     <a href="#Variables" class="sidebar-item block px-4 py-2 rounded-lg text-sm">18. Variables</a>
+                    <a href="#Oled" class="sidebar-item block px-4 py-2 rounded-lg text-sm">19. OLED Display</a>
+                    <a href="#Ranging" class="sidebar-item block px-4 py-2 rounded-lg text-sm">20. Ranging Sensors</a>
                 </nav>
 
             </div>
@@ -1869,6 +1879,177 @@
                             <div class="use-case-box"><span class="label">Project Ideas</span>
                                 <p class="text-body">Creating a toggle switch for LEDs, marking a mission task as
                                     complete, safety guards, or conditional arming gates.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 19. OLED Display -->
+                <section id="Oled">
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">19. OLED Display</h2>
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+                        <p class="text-slate-200 leading-relaxed mb-4">
+                            <span class="font-bold text-slate-100">Draw text, numbers, lines, and shapes</span> on the drone's physical OLED screen extension in real-time.
+                        </p>
+                        <p class="text-slate-200 leading-relaxed">
+                            Create visual battery meters, robotic emotional expressions, live telemetry radar HUDs, or interactive 2-player game screens directly from the visual block interface.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="info-card">
+                            <div class="pb-block block-oled">OLED Initialize</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Boots up the physical monochromatic OLED display screen.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Place in your "on start" block to trigger screen boot sequence before flight.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-oled">OLED Clear</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Clears all pixels from the display buffer, turning the screen black.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Place at the very beginning of your "pluto loop" to wipe the screen clean before drawing the next frame.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-oled">OLED Update</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Pushes all buffered text, values, and shape drawings onto the physical screen.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Place at the absolute end of your "pluto loop" after all rendering blocks are defined.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-oled">Draw Text</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Draws a text string at specified (X, Y) coordinates (0,0 is top-left).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Displaying section titles like "ALTITUDE", "BATTERY STATUS", mode names, or "GO!!!".</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-oled">Draw Number</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Renders a numerical value or active variable at specified (X, Y) coordinates.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Displaying live drone height sensor readings, battery cell voltage percentages, or scoreboard numbers.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-oled">Draw Pixel</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Turns a single pixel on or off at the specified (X, Y) coordinate.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Plotting complex customized path graphs or fine-grain visual indicators.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-oled">Draw Line</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Draws a straight line from coordinate (X0, Y0) to (X1, Y1).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Creating a center court dividing line for Pong arcade, or rendering scale axes for Z-altitude radar.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-oled">Draw Rectangle</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Draws a solid filled or wireframe hollow rectangle of width W and height H starting at (X, Y).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Drawing visual progress bars, cell borders, player paddles, or warning notification window shapes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 20. Ranging Sensors -->
+                <section id="Ranging">
+                    <h2 class="text-3xl font-black text-sky-400 mb-10">20. Ranging Sensors</h2>
+
+                    <div
+                        class="bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 rounded-xl p-6 mb-12">
+                        <p class="text-slate-200 leading-relaxed mb-4">
+                            <span class="font-bold text-slate-100">Measure distances and avoid collisions</span> using onboard laser-based rangefinder sensors.
+                        </p>
+                        <p class="text-slate-200 leading-relaxed">
+                            Initialize ranging sensors in four directions, configure automated obstacle avoidance, trigger proximity alerts, or acquire exact millimeter range metrics.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="info-card">
+                            <div class="pb-block block-ranging">XRanging Init All</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Initializes all range sensors (Left, Right, Front, Back) at once.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Booting up the entire collision-guard array in "on start" before takeoff.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-ranging">XRanging Init Sensor</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Initializes a specific directional sensor (Left, Right, Front, Back) with a distance threshold.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Setting up a single directional safety fence (e.g. forward laser sensor) at a specific detection threshold.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-ranging">XRanging Init OA</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Configures the automatic object avoidance algorithm with an avoidance distance.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Setting up a default 30 cm avoidance bubble before executing flight paths.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-ranging">XRanging Enable OA</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Enables the automatic obstacle avoidance system overrides.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Turn on obstacle avoidance so the drone automatically backs away when close to walls or furniture.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-ranging">XRanging Disable OA</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Disables the automatic obstacle avoidance overrides.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Temporarily disable automatic corrections to execute tight-fit indoor landing or precise positioning.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-ranging">XRanging Triggered?</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Checks if a specific directional range sensor is triggered (object closer than threshold).</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Triggering warning beep sounds, flashing the red LED, or printing "WARNING" on the OLED display.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="pb-block block-ranging">XRanging Get Range</div>
+                            <div><span class="label">Function</span>
+                                <p class="text-body">Retrieves the actual measured distance in millimeters (mm) from a specific sensor.</p>
+                            </div>
+                            <div class="use-case-box"><span class="label">Project Ideas</span>
+                                <p class="text-body">Building a dynamic distance display on the OLED, or writing proportional navigation code to track a target.</p>
                             </div>
                         </div>
                     </div>
